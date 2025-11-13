@@ -154,6 +154,32 @@
         font-style: italic;
     }
 
+    /* Таймер */
+    .timer-block {
+        margin: 18px auto 10px;
+        padding: 10px 14px;
+        max-width: 360px;
+        border-radius: 20px;
+        background: radial-gradient(circle at top, rgba(255, 160, 220, 0.3), rgba(54, 21, 87, 0.9));
+        border: 1px solid rgba(255, 210, 255, 0.6);
+        box-shadow: 0 0 20px rgba(255, 150, 230, 0.6);
+    }
+
+    .timer-title {
+        font-size: 14px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #ffe6ff;
+        opacity: 0.9;
+    }
+
+    .timer-values {
+        margin-top: 6px;
+        font-size: 17px;
+        font-weight: 600;
+        color: #ffdbff;
+    }
+
     .btn-row {
         display: flex;
         flex-wrap: wrap;
@@ -262,6 +288,13 @@
         opacity: 0.9;
     }
 
+    .tiny-line {
+        margin-top: 6px;
+        font-size: 12px;
+        color: #ffe4ff;
+        opacity: 0.85;
+    }
+
     @media (max-width: 600px) {
         h1 {
             font-size: 25px;
@@ -306,13 +339,19 @@
             будто в них есть немного магии.
         </p>
         <p class="text highlight">
-            Жанека, жаным, я очень ценю нас, наши моменты, наши шутки, наши переписки
-            и даже наши ссоры, которые учат нас любить друг друга сильнее.
+            Жанека, жаным, я очень сильно люблю тебя. Так же сильно, как в первый день наших
+            отношений, когда только влюблялся в тебя, и с каждым днем все сильнее.
         </p>
 
         <div class="quote">
             Любить - это не жить без ссор и идеальных дней. Любить - это снова выбирать друг друга,
-            даже когда было больно, сложно или обидно. И я снова и снова выбираю тебя.
+            даже когда было больно, сложно или обидно. Я снова и снова выбираю тебя.
+        </div>
+
+        <!-- Таймер -->
+        <div class="timer-block">
+            <div class="timer-title">мы вместе уже</div>
+            <div class="timer-values" id="timer">считаю наши дни...</div>
         </div>
 
         <div class="btn-row">
@@ -360,6 +399,10 @@
         <div class="signature">
             С любовью, от души, всегда твой<br>
             <b>Диас</b> 🫶
+            <div class="tiny-line">
+                Если ты это читаешь, значит я снова думаю о тебе и снова влюбляюсь в тебя,
+                как в первый день наших отношений.
+            </div>
         </div>
     </div>
 </div>
@@ -409,6 +452,34 @@
             status.textContent = "Я в любой момент снова включу нашу песню для тебя. 🌙";
         }
     }
+
+    // Таймер: считаем, сколько вы вместе
+    // Предположим, вы вместе с 11.11.2024
+    const startDate = new Date(2024, 10, 11); // месяцы с 0, поэтому 10 - это ноябрь
+
+    function updateTimer() {
+        const now = new Date();
+        let diff = now - startDate; // в миллисекундах
+
+        if (diff < 0) diff = 0;
+
+        const seconds = Math.floor(diff / 1000) % 60;
+        const minutes = Math.floor(diff / (1000 * 60)) % 60;
+        const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+        const timerEl = document.getElementById("timer");
+        if (timerEl) {
+            timerEl.textContent =
+                days + " дн " +
+                hours.toString().padStart(2, "0") + " ч " +
+                minutes.toString().padStart(2, "0") + " мин " +
+                seconds.toString().padStart(2, "0") + " сек";
+        }
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
 </script>
 
 </body>
