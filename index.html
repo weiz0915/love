@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>11.11.2025 — Для тебя 💖</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9eb8, #ffbdf0, #ffd6e5);
+    background-size: 400% 400%;
+    animation: bg 12s ease infinite;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+@keyframes bg {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+h1 {
+    text-align: center;
+    margin-top: 80px;
+    color: white;
+    font-size: 55px;
+    text-shadow: 0 0 15px #ff2e63, 0 0 30px #ff2e63;
+    animation: fadeIn 2.5s ease;
+}
+
+p {
+    text-align: center;
+    font-size: 22px;
+    color: #fff;
+    width: 80%;
+    margin: 20px auto;
+    animation: fadeIn 3s ease;
+}
+
+button {
+    display: block;
+    margin: 40px auto;
+    padding: 20px 40px;
+    font-size: 22px;
+    background: #ff2e63;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff2e63;
+    animation: fadeIn 3.5s ease;
+    transition: 0.3s;
+}
+button:hover {
+    transform: scale(1.07);
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* Падающие сердечки */
+.heart {
+    position: fixed;
+    top: -10px;
+    font-size: 20px;
+    color: #ff166a;
+    animation: fall linear forwards;
+}
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+#message {
+    display: none;
+    margin-top: 40px;
+    font-size: 24px;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 50, 100, 0.35);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 1.5s ease;
+}
+</style>
+</head>
+
+<body>
+
+<h1>С годовщиной нас 💖</h1>
+
+<p>Сегодня 11.11.2025 — день, который я хочу разделить только с тобой.</p>
+<p>Этот маленький сайт я сделал сам… чтобы ты знала: ты для меня — особенная.</p>
+
+<button onclick="showMessage()">Нажми меня 💌</button>
+
+<div id="message">
+    <p><b>От Диаса для тебя:</b><br><br>
+    Спасибо тебе за этот год. За тепло, за смех, за терпение, за нашу историю.  
+    Я счастлив, что именно ты рядом со мной.  
+    Ты делаешь мою жизнь ярче, спокойнее и теплее.  
+    Я хочу, чтобы впереди было ещё больше таких дней, как сегодня — дней, где есть мы.  
+    Ты — моё счастье. 💖  
+    </p>
+</div>
+
+<script>
+// эффект сердечек
+setInterval(function() {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    heart.innerHTML = "❤️";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}, 300);
+
+// показать текст
+function showMessage() {
+    document.getElementById('message').style.display = "block";
+}
+</script>
+
+</body>
+</html>
