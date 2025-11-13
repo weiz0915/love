@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Жанека, с нашей годовщиной ❤️</title>
+<title>Фотоархив 11.11</title>
 <style>
     * {
         box-sizing: border-box;
@@ -34,6 +34,7 @@
         opacity: 0.7;
         z-index: 0;
         pointer-events: none;
+        will-change: transform;
     }
 
     .glow.g1 {
@@ -68,7 +69,25 @@
         to   { transform: translateY(-30px) translateX(20px); }
     }
 
-    /* Плавающий фон с вашими фотками */
+    /* Звездное небо */
+    .star {
+        position: fixed;
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background: rgba(255, 235, 255, 0.9);
+        opacity: 0.7;
+        z-index: 0;
+        animation: twinkle 3s ease-in-out infinite alternate;
+        pointer-events: none;
+    }
+
+    @keyframes twinkle {
+        from { opacity: 0.2; transform: scale(0.8); }
+        to   { opacity: 1; transform: scale(1.4); }
+    }
+
+    /* Плавающий фон с вашими фотками + параллакс */
     .bg-photo {
         position: fixed;
         width: 230px;
@@ -81,6 +100,7 @@
         z-index: 0;
         box-shadow: 0 0 25px rgba(255, 149, 214, 0.7);
         animation: float 18s ease-in-out infinite alternate;
+        will-change: transform;
     }
 
     .bg-photo.one {
@@ -146,6 +166,46 @@
         to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* Логотип D 🤍 J */
+    .logo {
+        position: fixed;
+        top: 12px;
+        right: 18px;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #ffe6ff;
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 210, 255, 0.8);
+        background: rgba(12, 4, 30, 0.75);
+        box-shadow: 0 0 15px rgba(255, 160, 230, 0.9);
+        z-index: 4;
+        cursor: default;
+    }
+
+    .logo::after {
+        content: "Наш маленький мир";
+        position: absolute;
+        right: 50%;
+        top: 115%;
+        transform: translateX(50%);
+        white-space: nowrap;
+        font-size: 10px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(24, 10, 50, 0.95);
+        border: 1px solid rgba(255, 210, 255, 0.7);
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none;
+    }
+
+    .logo:hover::after {
+        opacity: 1;
+        transform: translateX(50%) translateY(2px);
+    }
+
     .date {
         font-size: 14px;
         letter-spacing: 2px;
@@ -162,6 +222,14 @@
         text-shadow:
             0 0 12px #ff99cc,
             0 0 25px #ff2e63;
+        min-height: 1.3em;
+    }
+
+    #typed-title {
+        border-right: 2px solid #ffd6ff;
+        padding-right: 4px;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     .subtitle {
@@ -181,6 +249,20 @@
         margin-bottom: 12px;
     }
 
+    .glow-word {
+        position: relative;
+        transition: color 0.25s ease, text-shadow 0.25s ease;
+        cursor: default;
+    }
+
+    .glow-word:hover {
+        color: #ffe6ff;
+        text-shadow:
+            0 0 6px #ff9ad6,
+            0 0 12px #ff9ad6,
+            0 0 18px #ff9ad6;
+    }
+
     .highlight {
         font-size: 19px;
         font-weight: bold;
@@ -189,6 +271,7 @@
         margin-bottom: 14px;
     }
 
+    /* Слайдер с цитатами */
     .quote {
         margin: 18px auto 22px;
         padding: 12px 16px;
@@ -201,6 +284,13 @@
         border: 1px solid rgba(255, 210, 255, 0.5);
         box-shadow: 0 0 20px rgba(255, 158, 219, 0.6);
         font-style: italic;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+        min-height: 3em;
+    }
+
+    .quote.show {
+        opacity: 1;
     }
 
     /* Таймер */
@@ -282,7 +372,7 @@
         opacity: 0.9;
     }
 
-    /* Галерея с еще 4 фото */
+    /* Галерея */
     .gallery-title {
         margin-top: 26px;
         font-size: 17px;
@@ -317,7 +407,7 @@
         position: fixed;
         top: -10px;
         font-size: 18px;
-        color: #ff99cc;
+        color: #ff166a;
         animation: fall linear forwards;
         z-index: 2;
         pointer-events: none;
@@ -373,6 +463,9 @@
         h1 {
             font-size: 25px;
         }
+        #typed-title {
+            white-space: normal;
+        }
         .card {
             padding: 26px 16px 30px;
         }
@@ -388,9 +481,13 @@
 </head>
 <body>
 
+<div class="logo">D 🤍 J</div>
+
 <div class="glow g1"></div>
 <div class="glow g2"></div>
 <div class="glow g3"></div>
+
+<!-- Звезды создадим скриптом -->
 
 <!-- Фон с вашими фотками -->
 <div class="bg-photo one"></div>
@@ -404,16 +501,20 @@
 <div class="wrapper">
     <div class="card">
         <div class="date">11.11.2025 • наш первый год вместе</div>
-        <h1>Жанека, с нашей годовщиной жаным ❤️</h1>
+        <h1>
+            <span id="typed-title" data-text="Жанека, с нашей годовщиной, милая жаным ❤️">
+                Жанека, с нашей годовщиной, милая жаным ❤️
+            </span>
+        </h1>
         <div class="subtitle">я правда рад, что этот год и все его моменты были с тобой</div>
 
         <div class="heart-line">♡ ♡ ♡</div>
 
         <p class="text">
             Милая, за этот год ты стала для меня настоящим домом. С тобой спокойнее,
-            теплее и как-то правильнее. Ты важна для меня намного сильнее чем ты
-            даже представляешь. Ты не просто девушка, ты очень родной человек,
-            та на кого я хочу опираться и за кого хочу держаться.
+            теплее и как-то правильнее. Ты важна для меня намного сильнее, чем ты
+            представляешь. Ты не просто девушка, ты очень родной человек, та, на кого
+            я хочу опираться и за кого хочу держаться.
         </p>
         <p class="text">
             Как бы мы ни ругались и ни спорили, внутри все равно одно чувство:
@@ -422,16 +523,11 @@
             для меня очень ценно, что после всего мы снова рядом и снова выбираем друг друга.
         </p>
         <p class="text highlight">
-            Жанека, жаным я очень сильно люблю тебя и верю, что мы дойдем
-            до конца, до кольца.
+            Жанека, <span class="glow-word">милая</span> <span class="glow-word">жаным</span>, я очень сильно люблю тебя
+            и верю, что мы дойдем до конца, до кольца.
         </p>
 
-        <div class="quote">
-            Наши отношения для меня не идеальны и не сказочные, они живые и настоящие.
-            В них есть ссоры, эмоции, слезы, но в них еще больше любви, терпения и желания
-            идти дальше вместе. Я верю, что если мы будем слышать и беречь друг друга,
-            то точно дойдем туда, где уже будем смотреть назад и улыбаться тому, что не сдались.
-        </div>
+        <div class="quote" id="quote-box"></div>
 
         <!-- Таймер -->
         <div class="timer-block">
@@ -450,9 +546,9 @@
             <p><b>Моей Жанеке:</b></p>
             <p>
                 Спасибо тебе за твое терпение, за то, что выдерживаешь мой характер,
-                мои косяки и мои эмоции. Я вижу как ты стараешься, как переживаешь за нас,
-                как реагируешь не просто так. Мне очень важно что ты выбираешь нас,
-                даже когда нелегко и трудно.
+                мои косяки и мои эмоции. Я вижу, как ты стараешься, как переживаешь за нас,
+                как реагируешь не просто так. Мне очень важно, что ты выбираешь нас,
+                даже когда нелегко.
             </p>
             <p>
                 Я хочу учиться решать все спокойнее, без крика и обид, с уважением друг к другу.
@@ -460,14 +556,14 @@
                 есть мы, со всем нашим смехом, ревностью, обидами и теплом.
             </p>
             <p>
-                Я мечтаю о том дне, когда мы оба поступим на гранты и переедем в Астану,
-                о котором говорили и выйдем на новый уровень, о котором мечтали:
+                Я мечтаю о том дне, когда мы оба поступим на грант в ту Астану,
+                о которой говорили, и выйдем на новый уровень, о котором мечтали:
                 где мы уже живем вместе, просыпаемся рядом и строим свой общий день.
                 Я хочу идти к этому вместе с тобой и ради нас.
             </p>
             <p>
-                Ты правда мой самый родной человек, моя милая, жаным и мой самый
-                родной человек. Я с тобой и за тебя до конца, как бы ни было сложно.
+                Ты правда мой самый родной человек, моя милая жаным и мой самый
+                любимый голос. Я с тобой и за тебя до конца, как бы ни было сложно.
             </p>
             <p>
                 С нашей годовщиной, любовь моя. Спасибо, что ты есть у меня,
@@ -485,7 +581,7 @@
 
         <div class="signature">
             С любовью, от души, всегда твой<br>
-            <b>Dias</b> 🫶
+            <b>Диас</b> 🫶
             <div class="tiny-line">
                 Если ты это читаешь, значит я снова думаю о тебе и снова влюбляюсь в тебя,
                 как в первый день наших отношений ❤️
@@ -500,6 +596,20 @@
 </audio>
 
 <script>
+    // Звезды
+    function createStars(count) {
+        for (let i = 0; i < count; i++) {
+            const star = document.createElement("div");
+            star.classList.add("star");
+            star.style.left = Math.random() * 100 + "vw";
+            star.style.top = Math.random() * 100 + "vh";
+            star.style.animationDelay = (Math.random() * 3) + "s";
+            star.style.opacity = (0.3 + Math.random() * 0.7).toString();
+            document.body.appendChild(star);
+        }
+    }
+    createStars(80);
+
     // Падающие сердечки
     setInterval(function () {
         const heart = document.createElement("div");
@@ -541,7 +651,7 @@
 
     // Двойное касание на телефоне
     let lastTap = 0;
-    document.addEventListener("touchend", function (e) {
+    document.addEventListener("touchend", function () {
         const currentTime = Date.now();
         const tapLength = currentTime - lastTap;
         if (tapLength < 400 && tapLength > 0) {
@@ -550,12 +660,13 @@
         lastTap = currentTime;
     });
 
-    // Показ скрытого сообщения (письмо)
+    // Показ скрытого письма
     function showMessage() {
         const msg = document.getElementById("hidden-message");
         msg.style.display = "block";
         msg.scrollIntoView({ behavior: "smooth", block: "center" });
     }
+    window.showMessage = showMessage;
 
     // Музыка
     let isPlaying = false;
@@ -578,15 +689,13 @@
             status.textContent = "Я в любой момент снова включу нашу песню для тебя 🌙";
         }
     }
+    window.toggleMusic = toggleMusic;
 
     // Таймер: считаем, сколько вы вместе
-    // Предположим, вы вместе с 11.11.2024
-    const startDate = new Date(2024, 10, 11); // месяцы с 0, поэтому 10 - это ноябрь
-
+    const startDate = new Date(2024, 10, 11); // 11.11.2024
     function updateTimer() {
         const now = new Date();
         let diff = now - startDate;
-
         if (diff < 0) diff = 0;
 
         const seconds = Math.floor(diff / 1000) % 60;
@@ -603,9 +712,83 @@
                 seconds.toString().padStart(2, "0") + " сек";
         }
     }
-
     updateTimer();
     setInterval(updateTimer, 1000);
+
+    // Typed-эффект заголовка
+    const typedEl = document.getElementById("typed-title");
+    if (typedEl) {
+        const fullText = typedEl.getAttribute("data-text") || typedEl.textContent;
+        typedEl.textContent = "";
+        let i = 0;
+        function typeNext() {
+            if (i <= fullText.length) {
+                typedEl.textContent = fullText.slice(0, i);
+                i++;
+                setTimeout(typeNext, 70);
+            }
+        }
+        typeNext();
+    }
+
+    // Слайдер с цитатами
+    const quotes = [
+        "С тобой даже обычный день кажется особенным",
+        "Иногда я просто молчу, потому что хочу просто быть рядом с тобой",
+        "Мне не нужно много людей вокруг, когда есть ты",
+        "Я хочу, чтобы у нас было больше \"мы\", чем \"я\" и \"ты\"",
+        "Ты тот человек, о котором я благодарю Всевышнего перед сном",
+        "С тобой я впервые хочу не просто встречаться, а дойти до конца"
+    ];
+    const quoteBox = document.getElementById("quote-box");
+    let quoteIndex = 0;
+
+    function showNextQuote() {
+        if (!quoteBox) return;
+        quoteBox.classList.remove("show");
+        setTimeout(() => {
+            quoteBox.textContent = quotes[quoteIndex];
+            quoteBox.classList.add("show");
+            quoteIndex = (quoteIndex + 1) % quotes.length;
+        }, 300);
+    }
+    if (quoteBox) {
+        showNextQuote();
+        setInterval(showNextQuote, 5000);
+    }
+
+    // Параллакс для фона и фоток
+    const parallaxElements = [
+        ...document.querySelectorAll(".bg-photo"),
+        ...document.querySelectorAll(".glow")
+    ];
+
+    function applyParallax(xRatio, yRatio) {
+        parallaxElements.forEach((el, index) => {
+            const depth = 6 + index * 3;
+            const moveX = -xRatio * depth;
+            const moveY = -yRatio * depth;
+            el.style.transform = "translate3d(" + moveX + "px," + moveY + "px,0)";
+        });
+    }
+
+    document.addEventListener("mousemove", function (e) {
+        const x = e.clientX - window.innerWidth / 2;
+        const y = e.clientY - window.innerHeight / 2;
+        const xRatio = x / window.innerWidth;
+        const yRatio = y / window.innerHeight;
+        applyParallax(xRatio, yRatio);
+    });
+
+    document.addEventListener("touchmove", function (e) {
+        if (!e.touches[0]) return;
+        const touch = e.touches[0];
+        const x = touch.clientX - window.innerWidth / 2;
+        const y = touch.clientY - window.innerHeight / 2;
+        const xRatio = x / window.innerWidth;
+        const yRatio = y / window.innerHeight;
+        applyParallax(xRatio, yRatio);
+    }, { passive: true });
 </script>
 
 </body>
