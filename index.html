@@ -2,128 +2,325 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>11.11.2025 — Для тебя 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Жанека, с нашей годовщиной 💖</title>
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #ff9eb8, #ffbdf0, #ffd6e5);
-    background-size: 400% 400%;
-    animation: bg 12s ease infinite;
-    font-family: 'Arial', sans-serif;
-    overflow-x: hidden;
-}
-@keyframes bg {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-h1 {
-    text-align: center;
-    margin-top: 80px;
-    color: white;
-    font-size: 55px;
-    text-shadow: 0 0 15px #ff2e63, 0 0 30px #ff2e63;
-    animation: fadeIn 2.5s ease;
-}
-
-p {
-    text-align: center;
-    font-size: 22px;
-    color: #fff;
-    width: 80%;
-    margin: 20px auto;
-    animation: fadeIn 3s ease;
-}
-
-button {
-    display: block;
-    margin: 40px auto;
-    padding: 20px 40px;
-    font-size: 22px;
-    background: #ff2e63;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    box-shadow: 0 0 20px #ff2e63;
-    animation: fadeIn 3.5s ease;
-    transition: 0.3s;
-}
-button:hover {
-    transform: scale(1.07);
-}
-
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
-/* Падающие сердечки */
-.heart {
-    position: fixed;
-    top: -10px;
-    font-size: 20px;
-    color: #ff166a;
-    animation: fall linear forwards;
-}
-@keyframes fall {
-    to {
-        transform: translateY(110vh);
-        opacity: 0;
+    * {
+        box-sizing: border-box;
     }
-}
 
-#message {
-    display: none;
-    margin-top: 40px;
-    font-size: 24px;
-    color: white;
-    padding: 20px;
-    border-radius: 15px;
-    background: rgba(255, 50, 100, 0.35);
-    backdrop-filter: blur(4px);
-    animation: fadeIn 1.5s ease;
-}
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+        background: radial-gradient(circle at top, #ffb3d9 0, #ff7aa2 30%, #1b1025 75%, #06010b 100%);
+        background-attachment: fixed;
+    }
+
+    /* Плавающий фон с вашими фотками */
+    .bg-photo {
+        position: fixed;
+        width: 240px;
+        height: 320px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 30px;
+        filter: blur(1px) brightness(0.9);
+        opacity: 0.28;
+        z-index: 0;
+        box-shadow: 0 0 25px rgba(255, 149, 214, 0.7);
+        animation: float 16s ease-in-out infinite alternate;
+    }
+
+    .bg-photo.one {
+        top: 8%;
+        left: 5%;
+        background-image: url("us1.jpg"); /* второе фото */
+    }
+    .bg-photo.two {
+        bottom: 6%;
+        right: 6%;
+        background-image: url("us2.jpg"); /* третье фото */
+        animation-delay: 4s;
+    }
+
+    @keyframes float {
+        from { transform: translateY(0) rotate(-3deg); }
+        to   { transform: translateY(-30px) rotate(3deg); }
+    }
+
+    /* Центральная карточка */
+    .wrapper {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+        z-index: 1;
+    }
+
+    .card {
+        max-width: 750px;
+        width: 100%;
+        padding: 35px 25px 40px;
+        border-radius: 30px;
+        background: rgba(12, 3, 24, 0.85);
+        border: 1px solid rgba(255, 184, 255, 0.4);
+        box-shadow:
+            0 0 25px rgba(255, 138, 216, 0.7),
+            0 0 80px rgba(97, 66, 255, 0.5);
+        backdrop-filter: blur(12px);
+        text-align: center;
+        animation: fadeIn 1.8s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .date {
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #ffbde8;
+        opacity: 0.9;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        margin: 0 0 15px;
+        font-size: 34px;
+        line-height: 1.2;
+        text-shadow:
+            0 0 12px #ff99cc,
+            0 0 25px #ff2e63;
+    }
+
+    .subtitle {
+        font-size: 17px;
+        margin-bottom: 20px;
+        color: #ffdff7;
+    }
+
+    .text {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .highlight {
+        font-size: 20px;
+        font-weight: bold;
+        color: #ffd1f2;
+    }
+
+    .heart-line {
+        font-size: 26px;
+        margin: 10px 0 20px;
+    }
+
+    .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        margin: 25px 0 10px;
+    }
+
+    button {
+        border: none;
+        border-radius: 999px;
+        padding: 13px 26px;
+        font-size: 16px;
+        cursor: pointer;
+        background: linear-gradient(135deg, #ff2e63, #ff99cc);
+        color: #fff;
+        box-shadow: 0 0 18px rgba(255, 102, 170, 0.9);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    button:hover {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 0 30px rgba(255, 153, 204, 1);
+    }
+
+    button:active {
+        transform: scale(0.98);
+        opacity: 0.9;
+    }
+
+    #hidden-message {
+        margin-top: 20px;
+        display: none;
+        text-align: left;
+        border-radius: 20px;
+        padding: 18px 16px;
+        background: radial-gradient(circle at top left, rgba(255, 129, 197, 0.4), rgba(63, 26, 92, 0.7));
+        border: 1px solid rgba(255, 198, 255, 0.5);
+        box-shadow: 0 0 25px rgba(255, 153, 204, 0.6);
+        font-size: 17px;
+    }
+
+    #hidden-message p {
+        margin: 6px 0;
+    }
+
+    #music-status {
+        margin-top: 8px;
+        font-size: 13px;
+        color: #ffc8f5;
+        opacity: 0.9;
+    }
+
+    /* Падающие сердечки */
+    .heart {
+        position: fixed;
+        top: -10px;
+        font-size: 18px;
+        color: #ff99cc;
+        animation: fall linear forwards;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(110vh);
+            opacity: 0;
+        }
+    }
+
+    /* Маленькая приписка внизу */
+    .signature {
+        margin-top: 25px;
+        font-size: 14px;
+        color: #ffcaee;
+        opacity: 0.9;
+    }
+
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 27px;
+        }
+        .card {
+            padding: 28px 18px 32px;
+        }
+        .bg-photo {
+            width: 170px;
+            height: 230px;
+        }
+    }
 </style>
 </head>
-
 <body>
 
-<h1>С годовщиной нас 💖</h1>
+<!-- Фон с вашими фотками -->
+<div class="bg-photo one"></div>
+<div class="bg-photo two"></div>
 
-<p>Сегодня 11.11.2025 — день, который я хочу разделить только с тобой.</p>
-<p>Этот маленький сайт я сделал сам… чтобы ты знала: ты для меня — особенная.</p>
+<div class="wrapper">
+    <div class="card">
+        <div class="date">11.11.2025 • наш первый год вместе</div>
+        <h1>Жанека, с нашей годовщиной, жаным 💖</h1>
+        <div class="subtitle">этот маленький мир я сделал только для тебя</div>
 
-<button onclick="showMessage()">Нажми меня 💌</button>
+        <div class="heart-line">♡ ♡ ♡</div>
 
-<div id="message">
-    <p><b>От Диаса для тебя:</b><br><br>
-    Спасибо тебе за этот год. За тепло, за смех, за терпение, за нашу историю.  
-    Я счастлив, что именно ты рядом со мной.  
-    Ты делаешь мою жизнь ярче, спокойнее и теплее.  
-    Я хочу, чтобы впереди было ещё больше таких дней, как сегодня — дней, где есть мы.  
-    Ты — моё счастье. 💖  
-    </p>
+        <p class="text">
+            От души поздравляю тебя с нашей годовщиной. За этот год ты стала для меня
+            не просто девушкой — ты стала моим человеком, моим спокойствием и вдохновением.
+        </p>
+        <p class="text">
+            Когда я рядом с тобой, мир становится мягче, тише и светлее. Ты делаешь меня лучше,
+            сильнее и счастливее. Спасибо тебе за каждый наш день, за твой смех, взгляды,
+            сообщения, за то, что просто есть в моей жизни.
+        </p>
+        <p class="text highlight">
+            Жанека, жаным, я правда ценю нас и хочу, чтобы наша история только начиналась. 💫
+        </p>
+
+        <div class="btn-row">
+            <button onclick="toggleMusic()">Наша песня — KETPE 🎵</button>
+            <button onclick="showMessage()">Нажми сюда, жаным 💌</button>
+        </div>
+
+        <div id="music-status">Если музыка не играет, значит файл ещё не добавлен. Потом я обязательно включу её для нас. 💿</div>
+
+        <div id="hidden-message">
+            <p><b>Моей Жанеке:</b></p>
+            <p>
+                Спасибо за этот год. За все моменты, когда ты поддерживала, молчала рядом,
+                смеялась, обижалась, мирилась, писала мне "доброе утро" и "доброй ночи".
+            </p>
+            <p>
+                Я хочу, чтобы у нас было ещё много таких 11.11 — с нашими шутками, фотками,
+                объятиями и нашими маленькими традициями. Мне очень дорого всё, что связано с тобой.
+            </p>
+            <p>
+                Ты — моё самое тёплое "жаным". И я правда хочу беречь тебя, радовать и
+                быть тем, на кого ты всегда можешь опереться.
+            </p>
+            <p>
+                С нашей годовщиной, любовь моя. Я рядом — сегодня и дальше. 💘
+            </p>
+        </div>
+
+        <div class="signature">
+            С любовью, от души, всегда твой<br>
+            <b>Диас</b> 🫶
+        </div>
+    </div>
 </div>
 
-<script>
-// эффект сердечек
-setInterval(function() {
-    let heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-    heart.innerHTML = "❤️";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
-}, 300);
+<!-- Музыка. Положи в репозиторий файл ketpe.mp3 -->
+<audio id="loveSong" loop>
+    <source src="ketpe.mp3" type="audio/mpeg">
+</audio>
 
-// показать текст
-function showMessage() {
-    document.getElementById('message').style.display = "block";
-}
+<script>
+    // Падающие сердечки
+    setInterval(function () {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+        heart.innerHTML = "❤️";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+    }, 350);
+
+    // Показ скрытого сообщения
+    function showMessage() {
+        const msg = document.getElementById("hidden-message");
+        msg.style.display = "block";
+        msg.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    // Музыка
+    let isPlaying = false;
+    function toggleMusic() {
+        const audio = document.getElementById("loveSong");
+        const status = document.getElementById("music-status");
+
+        if (!audio) return;
+
+        if (!isPlaying) {
+            audio.play().then(() => {
+                isPlaying = true;
+                status.textContent = "Наша песня играет для тебя, жаным. 💿💗";
+            }).catch(() => {
+                status.textContent = "Браузер не дал включить звук сразу — попробуй нажать ещё раз. 🎧";
+            });
+        } else {
+            audio.pause();
+            isPlaying = false;
+            status.textContent = "Я в любой момент снова включу нашу песню для тебя. 🌙";
+        }
+    }
 </script>
 
 </body>
