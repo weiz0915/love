@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Жанека, с нашей годовщиной 💖</title>
+<title>Жанека, с нашей годовщиной ❤️</title>
 <style>
     * {
         box-sizing: border-box;
@@ -15,64 +15,79 @@
         font-family: "Arial", sans-serif;
         color: #fff;
         overflow-x: hidden;
-        background: radial-gradient(circle at top, #ffb3d9 0, #ff7aa2 30%, #1b1025 75%, #06010b 100%);
+        background: radial-gradient(circle at top, #ffb3d9 0, #ff7aa2 30%, #130821 70%, #040008 100%);
         background-attachment: fixed;
     }
 
     /* Плавающий фон с вашими фотками */
     .bg-photo {
         position: fixed;
-        width: 240px;
-        height: 320px;
+        width: 230px;
+        height: 300px;
         background-size: cover;
         background-position: center;
-        border-radius: 30px;
+        border-radius: 26px;
         filter: blur(1px) brightness(0.9);
-        opacity: 0.28;
+        opacity: 0.27;
         z-index: 0;
         box-shadow: 0 0 25px rgba(255, 149, 214, 0.7);
-        animation: float 16s ease-in-out infinite alternate;
+        animation: float 18s ease-in-out infinite alternate;
     }
 
     .bg-photo.one {
         top: 8%;
         left: 5%;
-        background-image: url("us1.jpg.jpeg"); /* второе фото */
+        background-image: url("us1.jpg.jpeg"); /* фото 1 */
     }
     .bg-photo.two {
-        bottom: 6%;
+        bottom: 5%;
         right: 6%;
-        background-image: url("us2.jpg.jpeg"); /* третье фото */
-        animation-delay: 4s;
+        background-image: url("us2.jpg.jpeg"); /* фото 2 */
+        animation-delay: 3s;
+    }
+    .bg-photo.three {
+        top: 10%;
+        right: 12%;
+        width: 190px;
+        height: 250px;
+        background-image: url("us3.jpg.jpeg"); /* фото 3 */
+        animation-delay: 6s;
+    }
+    .bg-photo.four {
+        bottom: 12%;
+        left: 10%;
+        width: 190px;
+        height: 250px;
+        background-image: url("us4.jpg.jpeg"); /* фото 4 */
+        animation-delay: 9s;
     }
 
     @keyframes float {
         from { transform: translateY(0) rotate(-3deg); }
-        to   { transform: translateY(-30px) rotate(3deg); }
+        to   { transform: translateY(-25px) rotate(3deg); }
     }
 
-    /* Центральная карточка */
     .wrapper {
         position: relative;
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 40px 20px;
+        padding: 40px 20px 60px;
         z-index: 1;
     }
 
     .card {
-        max-width: 750px;
+        max-width: 820px;
         width: 100%;
-        padding: 35px 25px 40px;
+        padding: 35px 26px 38px;
         border-radius: 30px;
-        background: rgba(12, 3, 24, 0.85);
-        border: 1px solid rgba(255, 184, 255, 0.4);
+        background: rgba(8, 3, 20, 0.9);
+        border: 1px solid rgba(255, 184, 255, 0.45);
         box-shadow:
-            0 0 25px rgba(255, 138, 216, 0.7),
-            0 0 80px rgba(97, 66, 255, 0.5);
-        backdrop-filter: blur(12px);
+            0 0 25px rgba(255, 138, 216, 0.8),
+            0 0 70px rgba(94, 63, 210, 0.6);
+        backdrop-filter: blur(14px);
         text-align: center;
         animation: fadeIn 1.8s ease;
     }
@@ -88,13 +103,13 @@
         text-transform: uppercase;
         color: #ffbde8;
         opacity: 0.9;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     h1 {
-        margin: 0 0 15px;
-        font-size: 34px;
-        line-height: 1.2;
+        margin: 0 0 14px;
+        font-size: 32px;
+        line-height: 1.3;
         text-shadow:
             0 0 12px #ff99cc,
             0 0 25px #ff2e63;
@@ -102,25 +117,41 @@
 
     .subtitle {
         font-size: 17px;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
         color: #ffdff7;
+    }
+
+    .heart-line {
+        font-size: 26px;
+        margin: 10px 0 22px;
     }
 
     .text {
         font-size: 18px;
         line-height: 1.6;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
     }
 
     .highlight {
-        font-size: 20px;
+        font-size: 19px;
         font-weight: bold;
         color: #ffd1f2;
+        margin-top: 6px;
+        margin-bottom: 14px;
     }
 
-    .heart-line {
-        font-size: 26px;
-        margin: 10px 0 20px;
+    .quote {
+        margin: 18px auto 22px;
+        padding: 12px 16px;
+        max-width: 520px;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #ffe7ff;
+        border-radius: 16px;
+        background: radial-gradient(circle at top left, rgba(255, 158, 219, 0.35), rgba(70, 38, 115, 0.9));
+        border: 1px solid rgba(255, 210, 255, 0.5);
+        box-shadow: 0 0 20px rgba(255, 158, 219, 0.6);
+        font-style: italic;
     }
 
     .btn-row {
@@ -128,7 +159,7 @@
         flex-wrap: wrap;
         gap: 12px;
         justify-content: center;
-        margin: 25px 0 10px;
+        margin: 22px 0 14px;
     }
 
     button {
@@ -159,9 +190,9 @@
         text-align: left;
         border-radius: 20px;
         padding: 18px 16px;
-        background: radial-gradient(circle at top left, rgba(255, 129, 197, 0.4), rgba(63, 26, 92, 0.7));
-        border: 1px solid rgba(255, 198, 255, 0.5);
-        box-shadow: 0 0 25px rgba(255, 153, 204, 0.6);
+        background: radial-gradient(circle at top left, rgba(255, 129, 197, 0.42), rgba(63, 26, 92, 0.85));
+        border: 1px solid rgba(255, 198, 255, 0.6);
+        box-shadow: 0 0 25px rgba(255, 153, 204, 0.7);
         font-size: 17px;
     }
 
@@ -170,10 +201,40 @@
     }
 
     #music-status {
-        margin-top: 8px;
+        margin-top: 6px;
         font-size: 13px;
         color: #ffc8f5;
         opacity: 0.9;
+    }
+
+    /* Галерея с еще 4 фото */
+    .gallery-title {
+        margin-top: 26px;
+        font-size: 17px;
+        color: #ffdaf5;
+    }
+
+    .gallery {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 18px;
+        box-shadow: 0 0 15px rgba(255, 150, 220, 0.7);
+        filter: brightness(0.96);
+        transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .gallery img:hover {
+        transform: translateY(-4px) scale(1.03);
+        filter: brightness(1.05);
+        box-shadow: 0 0 25px rgba(255, 195, 255, 0.9);
     }
 
     /* Падающие сердечки */
@@ -194,9 +255,8 @@
         }
     }
 
-    /* Маленькая приписка внизу */
     .signature {
-        margin-top: 25px;
+        margin-top: 26px;
         font-size: 14px;
         color: #ffcaee;
         opacity: 0.9;
@@ -204,14 +264,17 @@
 
     @media (max-width: 600px) {
         h1 {
-            font-size: 27px;
+            font-size: 25px;
         }
         .card {
-            padding: 28px 18px 32px;
+            padding: 26px 16px 30px;
         }
         .bg-photo {
-            width: 170px;
-            height: 230px;
+            width: 160px;
+            height: 220px;
+        }
+        .gallery img {
+            height: 120px;
         }
     }
 </style>
@@ -221,52 +284,77 @@
 <!-- Фон с вашими фотками -->
 <div class="bg-photo one"></div>
 <div class="bg-photo two"></div>
+<div class="bg-photo three"></div>
+<div class="bg-photo four"></div>
 
 <div class="wrapper">
     <div class="card">
         <div class="date">11.11.2025 • наш первый год вместе</div>
-        <h1>Жанека, с нашей годовщиной, жаным 💖</h1>
-        <div class="subtitle">этот маленький мир я сделал только для тебя</div>
+        <h1>Жанека, с нашей годовщиной, жаным ❤️</h1>
+        <div class="subtitle">я правда рад, что этот год и все его моменты были с тобой</div>
 
         <div class="heart-line">♡ ♡ ♡</div>
 
         <p class="text">
-            От души поздравляю тебя с нашей годовщиной. За этот год ты стала для меня
-            не просто девушкой — ты стала моим человеком, моим спокойствием и вдохновением.
+            От души поздравляю тебя с нашей годовщиной. За этот год мы пережили очень многое:
+            смех и тишину, долгие разговоры и тупые приколы, обиды и ссоры, паузы и снова
+            "мы". И я правда счастлив, что несмотря на все это мы все равно рядом.
         </p>
         <p class="text">
-            Когда я рядом с тобой, мир становится мягче, тише и светлее. Ты делаешь меня лучше,
-            сильнее и счастливее. Спасибо тебе за каждый наш день, за твой смех, взгляды,
-            сообщения, за то, что просто есть в моей жизни.
+            Ты для меня не просто девушка. Ты мой человек. Моя опора, мое спокойствие и моя
+            самая теплая мысль перед сном. С тобой даже обычные дни ощущаются по-другому,
+            будто в них есть немного магии.
         </p>
         <p class="text highlight">
-            Жанека, жаным, я правда ценю нас и хочу, чтобы наша история только начиналась. 💫
+            Жанека, жаным, я очень ценю нас, наши моменты, наши шутки, наши переписки
+            и даже наши ссоры, которые учат нас любить друг друга сильнее.
         </p>
 
+        <div class="quote">
+            Любить - это не жить без ссор и идеальных дней. Любить - это снова выбирать друг друга,
+            даже когда было больно, сложно или обидно. И я снова и снова выбираю тебя.
+        </div>
+
         <div class="btn-row">
-            <button onclick="toggleMusic()">Наша песня — KETPE 🎵</button>
+            <button onclick="toggleMusic()">Наша песня - KETPE 🎵</button>
             <button onclick="showMessage()">Нажми сюда, жаным 💌</button>
         </div>
 
-        <div id="music-status">Если музыка не играет, значит файл ещё не добавлен. Потом я обязательно включу её для нас. 💿</div>
+        <div id="music-status">Если музыка не играет, значит браузер еще не разрешил звук. Можно нажать кнопку еще раз. 🎧</div>
 
         <div id="hidden-message">
             <p><b>Моей Жанеке:</b></p>
             <p>
-                Спасибо за этот год. За все моменты, когда ты поддерживала, молчала рядом,
-                смеялась, обижалась, мирилась, писала мне "доброе утро" и "доброй ночи".
+                Спасибо тебе за этот год. За моменты, когда ты держала меня, когда я выгорал,
+                за то, как ты смотришь, как улыбаешься, как обижаешься и миришься.
+                За все "я рядом" и за все "ты где".
             </p>
             <p>
-                Я хочу, чтобы у нас было ещё много таких 11.11 — с нашими шутками, фотками,
-                объятиями и нашими маленькими традициями. Мне очень дорого всё, что связано с тобой.
+                Мы уже прошли через ссоры, недопонимания, ревность, обиды. Но самое важное -
+                мы прошли через это вместе. И каждое "прости" и каждое "ладно, мир" только
+                сильнее связывает нас.
             </p>
             <p>
-                Ты — моё самое тёплое "жаным". И я правда хочу беречь тебя, радовать и
-                быть тем, на кого ты всегда можешь опереться.
+                Мне невероятно повезло, что именно ты называешь меня своим. Я хочу, чтобы дальше
+                было еще больше наших фотографий, песен, поездок, глупых разговоров до ночи
+                и таких вот дат, как сегодня.
             </p>
             <p>
-                С нашей годовщиной, любовь моя. Я рядом — сегодня и дальше. 💘
+                Ты правда мой самый родной человек. Мое самое нежное "жаным" и мой самый
+                любимый голос. Я хочу беречь тебя, поддерживать и делать счастье рядом со мной
+                чем-то спокойным и уверенным для тебя.
             </p>
+            <p>
+                С нашей годовщиной, любовь моя. Спасибо, что ты есть у меня. 💘
+            </p>
+        </div>
+
+        <div class="gallery-title">Несколько наших маленьких моментов, которые я люблю:</div>
+        <div class="gallery">
+            <img src="us3.jpg.jpeg" alt="Наш момент 1">
+            <img src="us4.jpg.jpeg" alt="Наш момент 2">
+            <img src="us5.jpg.jpeg" alt="Наш момент 3">
+            <img src="us6.jpg.jpeg" alt="Наш момент 4">
         </div>
 
         <div class="signature">
@@ -276,7 +364,7 @@
     </div>
 </div>
 
-<!-- Музыка. Положи в репозиторий файл ketpe.mp3 -->
+<!-- Музыка -->
 <audio id="loveSong" loop>
     <source src="ketpe.mp3.mp3" type="audio/mpeg">
 </audio>
@@ -311,9 +399,9 @@
         if (!isPlaying) {
             audio.play().then(() => {
                 isPlaying = true;
-                status.textContent = "Наша песня играет для тебя, жаным. 💿💗";
+                status.textContent = "Наша песня играет для тебя, жаным. 💿❤️";
             }).catch(() => {
-                status.textContent = "Браузер не дал включить звук сразу — попробуй нажать ещё раз. 🎧";
+                status.textContent = "Браузер пока не дал включить звук. Попробуй нажать еще раз. 🎧";
             });
         } else {
             audio.pause();
