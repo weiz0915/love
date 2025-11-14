@@ -9,6 +9,10 @@
         box-sizing: border-box;
     }
 
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         margin: 0;
         padding: 0;
@@ -339,13 +343,12 @@
     }
 
     button:active {
-        transform: scale(0.98);
+        transform: scale(0.96);
         opacity: 0.9;
     }
 
     #hidden-message {
         margin-top: 20px;
-        display: none;
         text-align: left;
         border-radius: 20px;
         padding: 18px 16px;
@@ -353,6 +356,17 @@
         border: 1px solid rgba(255, 198, 255, 0.6);
         box-shadow: 0 0 25px rgba(255, 153, 204, 0.7);
         font-size: 17px;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(10px);
+        transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #hidden-message.show {
+        max-height: 800px;
+        opacity: 1;
+        transform: translateY(0);
     }
 
     #hidden-message p {
@@ -607,12 +621,6 @@
             0 0 18px rgba(255, 120, 200, 0.9);
     }
 
-    .invite-subtitle {
-        font-size: 13px;
-        color: #f4ddff;
-        margin-top: 2px;
-    }
-
     .invite-small {
         font-size: 13px;
         color: #ffeefe;
@@ -694,27 +702,6 @@
         font-size: 13px;
         color: #ffeefe;
         font-style: italic;
-    }
-
-    .playlist {
-        margin-top: 10px;
-        padding: 8px 10px;
-        border-radius: 14px;
-        background: rgba(14, 6, 35, 0.9);
-        border: 1px solid rgba(255, 210, 255, 0.3);
-        font-size: 13px;
-        color: #ffeefe;
-    }
-
-    .playlist-title {
-        font-weight: 600;
-        margin-bottom: 4px;
-    }
-
-    .playlist ul {
-        margin: 0;
-        padding-left: 18px;
-        line-height: 1.6;
     }
 
     .date-timer {
@@ -823,21 +810,29 @@
     }
 
     @media (max-width: 600px) {
+        .wrapper {
+            padding: 30px 12px 40px;
+        }
+        .card {
+            padding: 24px 14px 26px;
+            border-radius: 22px;
+        }
         h1 {
             font-size: 25px;
         }
         #typed-title {
             white-space: normal;
         }
-        .card {
-            padding: 26px 16px 30px;
-        }
         .bg-photo {
-            width: 160px;
-            height: 220px;
+            width: 150px;
+            height: 200px;
         }
         .gallery img {
             height: 120px;
+        }
+        button {
+            padding: 11px 20px;
+            font-size: 14px;
         }
         .invite-card {
             padding: 16px 12px 16px;
@@ -958,7 +953,6 @@
                             Приглашение на свидание • 16.11.2025
                         </div>
                         <h2 class="invite-title">Жанека 💖</h2>
-                        <div class="invite-subtitle">маленький неоновый секрет от Диаса</div>
                     </div>
                 </div>
 
@@ -989,7 +983,7 @@
                     </div>
                     <div class="invite-row">
                         <div class="invite-label">Время</div>
-                        <div class="invite-value">15:30</div>
+                        <div class="invite-value">16:00</div>
                     </div>
                     <div class="invite-row">
                         <div class="invite-label">Дата</div>
@@ -1013,14 +1007,6 @@
                 <p class="kaz-line">
                     Жанека, сен мен үшін ең жылы, ең жақын адамсың. Осындай кештер бізде әлі де көп болсыншы.
                 </p>
-
-                <div class="playlist">
-                    <div class="playlist-title">Музыка на наш вечер:</div>
-                    <ul>
-                        <li>KETPE</li>
-                        <li>и еще пару треков, которые я включу уже там, чтобы ты только слушала и кайфовала</li>
-                    </ul>
-                </div>
 
                 <div class="date-timer">
                     <div class="date-timer-title">До нашего свидания осталось:</div>
@@ -1073,7 +1059,7 @@
     <div class="invite-overlay-card">
         <h3>Жанека, ура 💘</h3>
         <p>
-            Значит, в <b>15:30</b> 16.11.2025  
+            Значит, в <b>16:00</b> 16.11.2025  
             мир точно станет чуточку счастливее.
         </p>
         <p class="invite-overlay-small">
@@ -1157,8 +1143,11 @@
 
     function showMessage() {
         const msg = document.getElementById("hidden-message");
-        msg.style.display = "block";
-        msg.scrollIntoView({ behavior: "smooth", block: "center" });
+        if (!msg) return;
+        msg.classList.toggle("show");
+        if (msg.classList.contains("show")) {
+            msg.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
     }
     window.showMessage = showMessage;
 
@@ -1207,8 +1196,8 @@
     updateTimer();
     setInterval(updateTimer, 1000);
 
-    // Таймер до свидания
-    const dateTarget = new Date(2025, 10, 16, 15, 30, 0); // 16.11.2025 15:30
+    // Таймер до свидания (16:00)
+    const dateTarget = new Date(2025, 10, 16, 16, 0, 0); // 16.11.2025 16:00
     function updateDateTimer() {
         const now = new Date();
         let diff = dateTarget - now;
@@ -1315,8 +1304,10 @@
 
     if (openInvite && inviteSection) {
         openInvite.addEventListener("click", () => {
-            inviteSection.classList.add("show");
-            inviteSection.scrollIntoView({ behavior: "smooth", block: "center" });
+            inviteSection.classList.toggle("show");
+            if (inviteSection.classList.contains("show")) {
+                inviteSection.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
         });
     }
 
