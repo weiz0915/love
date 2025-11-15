@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Наш маленький мир</title>
+<title>D & J · 11.11</title>
 <style>
     * {
         box-sizing: border-box;
@@ -14,12 +14,13 @@
         --radius-big: 24px;
         --radius-medium: 18px;
         --radius-pill: 999px;
+        --gold: #f7d88b;
     }
 
     body {
         margin: 0;
         padding: 0;
-        font-family: "Arial", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
         color: #ffeefe;
         overflow-x: hidden;
         background: radial-gradient(circle at top, #ffcbe8 0, #ff8fb8 30%, #371d5a 65%, #080013 100%);
@@ -190,7 +191,7 @@
     .card {
         max-width: 860px;
         width: 100%;
-        padding: 26px 20px 30px;
+        padding: 26px 20px 34px;
         border-radius: var(--radius-big);
         background: var(--card-bg);
         border: 1px solid var(--card-border);
@@ -332,13 +333,9 @@
         text-align: left;
     }
 
-    .text.center {
-        text-align: center;
-    }
-
     .highlight {
         font-size: 17px;
-        font-weight: bold;
+        font-weight: 600;
         color: var(--accent-soft);
         margin-top: 6px;
         margin-bottom: 14px;
@@ -368,19 +365,18 @@
 
     .timer-block {
         margin: 18px auto 12px;
-        padding: 10px 14px;
+        padding: 10px 16px;
         max-width: 360px;
         border-radius: var(--radius-pill);
-        background: radial-gradient(circle at top,
-            rgba(255, 160, 220, 0.22),
-            rgba(54, 21, 87, 0.9));
+        background: rgba(40, 10, 80, 0.65);
         border: 1px solid rgba(255, 210, 255, 0.65);
         box-shadow: var(--shadow-soft);
+        backdrop-filter: blur(18px);
     }
 
     body[data-theme="light"] .timer-block {
-        background: radial-gradient(circle at top, rgba(255, 218, 244, 0.96), rgba(251, 243, 255, 0.98));
-        border-color: rgba(255, 175, 230, 0.9);
+        background: rgba(255, 246, 255, 0.9);
+        border-color: rgba(255, 183, 231, 0.9);
     }
 
     .timer-title {
@@ -467,7 +463,7 @@
         opacity: 0.95;
     }
 
-    /* Пригласительная открытка */
+    /* Пригласительная открытка - стиль оставлен как есть */
 
     .invite-card {
         margin-top: 22px;
@@ -483,9 +479,9 @@
         transition:
             max-height 0.55s ease,
             opacity 0.45s ease,
-            margin-top 0.45s ease,
-            padding 0.45s ease,
-            transform 0.45s ease;
+            margin-top 0.45s.ease,
+            padding 0.45s.ease,
+            transform 0.45s.ease;
     }
 
     .invite-card.open {
@@ -570,13 +566,56 @@
         border-radius: var(--radius-medium);
         box-shadow: var(--shadow-soft);
         filter: brightness(0.96);
-        transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+        transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s.ease;
     }
 
     .gallery img:hover {
         transform: translateY(-3px) scale(1.03);
         filter: brightness(1.05);
         box-shadow: var(--shadow-strong);
+    }
+
+    /* Полароид блок */
+
+    .polaroid-block {
+        margin-top: 22px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .polaroid {
+        background: #fffdf9;
+        color: #3a2140;
+        padding: 8px 8px 10px;
+        border-radius: 12px;
+        width: 140px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+        transform: rotate(-2.5deg);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .polaroid:nth-child(2) {
+        transform: rotate(2.2deg);
+    }
+
+    .polaroid img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 6px;
+    }
+
+    .polaroid-caption {
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .polaroid:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 14px 26px rgba(0,0,0,0.22);
     }
 
     .heart {
@@ -626,7 +665,7 @@
         font-size: 13px;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.35s ease, transform 0.35s ease;
+        transition: opacity 0.35s.ease, transform 0.35s.ease;
         z-index: 3;
         text-align: center;
         max-width: 82%;
@@ -656,7 +695,7 @@
         overflow: hidden;
         transform: translateY(4px);
         opacity: 0;
-        transition: transform 0.5s ease, opacity 0.6s ease;
+        transition: transform 0.5s ease, opacity 0.6s.ease;
     }
 
     .section.visible {
@@ -692,12 +731,6 @@
         gap: 6px;
     }
 
-    .section-title-main span:first-child {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-    }
-
     .section-title-tag {
         font-size: 11px;
         padding: 2px 8px;
@@ -728,9 +761,9 @@
         transform: translateY(-6px);
         transition:
             max-height 0.5s ease,
-            opacity 0.35s ease,
-            transform 0.4s ease,
-            padding 0.4s ease;
+            opacity 0.35s.ease,
+            transform 0.4s.ease,
+            padding 0.4s.ease;
     }
 
     .section-body.open {
@@ -759,19 +792,18 @@
         color: var(--text-main);
     }
 
-    .chip-row {
+    .mood-buttons {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px;
-        margin: 6px 0 4px;
+        gap: 8px;
+        margin: 8px 0 6px;
     }
 
-    .chip {
-        font-size: 12px;
-        padding: 4px 10px;
-        border-radius: var(--radius-pill);
-        background: var(--chip-bg);
-        color: var(--accent-soft);
+    .mood-text {
+        font-size: 14px;
+        color: var(--text-main);
+        min-height: 1.6em;
+        margin-top: 4px;
     }
 
     .smile-counter {
@@ -787,26 +819,12 @@
         color: var(--accent-soft);
     }
 
-    .mood-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin: 8px 0 6px;
-    }
-
-    .mood-text {
-        font-size: 14px;
-        color: var(--text-main);
-        min-height: 1.6em;
-        margin-top: 4px;
-    }
-
     .quiet-blocks {
-        margin-top: 22px;
+        margin-top: 24px;
         text-align: left;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
     }
 
     .quiet-block {
@@ -815,8 +833,105 @@
         line-height: 1.7;
     }
 
-    .signature {
+    /* Чек-лист */
+
+    .checklist {
+        list-style: none;
+        padding-left: 0;
+        margin: 6px 0 0;
+    }
+
+    .checklist li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 4px;
+    }
+
+    .checklist li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        border: 1px solid rgba(255, 210, 255, 0.9);
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+    .big-number-card {
+        margin-top: 22px;
+        border-radius: var(--radius-big);
+        padding: 18px 16px 18px;
+        background: rgba(12, 4, 30, 0.9);
+        border: 1px solid rgba(255, 210, 255, 0.6);
+        box-shadow: var(--shadow-soft);
+        text-align: center;
+    }
+
+    body[data-theme="light"] .big-number-card {
+        background: rgba(255, 247, 255, 0.98);
+        border-color: rgba(255, 183, 231, 0.9);
+    }
+
+    .big-number {
+        font-size: 42px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: var(--gold);
+        text-shadow: 0 0 18px rgba(247, 216, 139, 0.35);
+    }
+
+    .big-number-subtitle {
+        margin-top: 4px;
+        font-size: 14px;
+        color: var(--text-soft);
+    }
+
+    /* Линия времени */
+
+    .timeline {
         margin-top: 24px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .timeline-inner {
+        position: relative;
+        padding-left: 18px;
+        border-left: 1px solid rgba(255, 210, 255, 0.5);
+    }
+
+    .timeline-item {
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 6px;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: -9px;
+        top: 3px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--gold), #ff9fdc);
+        box-shadow: 0 0 10px rgba(247, 216, 139, 0.6);
+    }
+
+    .timeline-date {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-bottom: 2px;
+    }
+
+    .timeline-text {
+        font-size: 13px;
+        color: var(--text-main);
+    }
+
+    .signature {
+        margin-top: 28px;
         font-size: 14px;
         color: var(--text-soft);
         opacity: 0.95;
@@ -828,6 +943,16 @@
         font-size: 12px;
         color: var(--text-muted);
         opacity: 0.9;
+    }
+
+    .footer-stamp {
+        margin-top: 12px;
+        font-size: 11px;
+        color: rgba(255, 228, 255, 0.7);
+    }
+
+    body[data-theme="light"] .footer-stamp {
+        color: rgba(122, 76, 148, 0.7);
     }
 
     /* Intro overlay */
@@ -899,7 +1024,7 @@
             padding: 70px 8px 50px;
         }
         .card {
-            padding: 22px 14px 26px;
+            padding: 22px 14px 28px;
         }
         h1 {
             font-size: 24px;
@@ -920,6 +1045,9 @@
         .logo {
             font-size: 12px;
             padding: 5px 12px;
+        }
+        .polaroid {
+            width: 130px;
         }
     }
 
@@ -1020,7 +1148,7 @@
             Если музыка не играет, нажми на кнопку еще раз, браузер иногда тупит, а я нет 🎧
         </div>
 
-        <!-- Пригласительная большая открытка -->
+        <!-- Пригласительная большая открытка (стиль не трогаем) -->
 
         <div id="invite-card" class="invite-card">
             <div class="invite-header">приглашение на наше свидание 💗</div>
@@ -1083,6 +1211,48 @@
             <img src="us4.jpg.jpeg" alt="Наш момент 2">
             <img src="us5.jpg.jpeg" alt="Наш момент 3">
             <img src="us6.jpg.jpeg" alt="Наш момент 4">
+        </div>
+
+        <!-- Полароид мини-альбом -->
+
+        <div class="polaroid-block">
+            <div class="polaroid">
+                <img src="us3.jpg.jpeg" alt="Мы смеемся">
+                <div class="polaroid-caption">Твой смех, который я люблю</div>
+            </div>
+            <div class="polaroid">
+                <img src="us4.jpg.jpeg" alt="Твой взгляд">
+                <div class="polaroid-caption">Ты и твой красивый взгляд</div>
+            </div>
+        </div>
+
+        <!-- Большая цифра -->
+
+        <div class="big-number-card">
+            <div class="big-number">365</div>
+            <div class="big-number-subtitle">примерно столько дней я счастливо думаю о тебе</div>
+        </div>
+
+        <!-- Линия времени -->
+
+        <div class="timeline">
+            <div class="timeline-inner">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">11.11.2024</div>
+                    <div class="timeline-text">день, когда началась наша история</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-text">наши планы, ссоры, разговоры и еще больше понимания</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">11.11.2025</div>
+                    <div class="timeline-text">год, после которого я еще сильнее хочу быть с тобой дальше</div>
+                </div>
+            </div>
         </div>
 
         <div class="divider-line"><span>· · · 💗 · · ·</span></div>
@@ -1372,10 +1542,12 @@
                 Если сегодня не хочешь ни с кем говорить - это нормально. Ты можешь молчать, но знай, что я все равно на твоей стороне.
             </div>
             <div class="quiet-block">
-                <b>Мини чек-лист заботы о себе на сегодня:</b><br>
-                ▢ поесть нормально<br>
-                ▢ чуть меньше себя накручивать<br>
-                ▢ хотя бы раз улыбнуться искренне
+                <b>Мини чек-лист заботы о себе на сегодня:</b>
+                <ul class="checklist">
+                    <li>поесть нормально</li>
+                    <li>чуть меньше себя накручивать</li>
+                    <li>хотя бы раз улыбнуться искренне</li>
+                </ul>
             </div>
             <div class="quiet-block">
                 <b>Что бы ни менялось на этом сайте, одно не меняется:</b> я за тебя.
@@ -1388,6 +1560,9 @@
             <div class="tiny-line">
                 Если ты это читаешь, значит я снова думаю о тебе и снова влюбляюсь в тебя,
                 как в первый день наших отношений ❤️
+            </div>
+            <div class="footer-stamp">
+                D & J · 2024 - ∞
             </div>
         </div>
     </div>
