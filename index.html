@@ -451,6 +451,69 @@
         opacity: 0.95;
     }
 
+    /* Пригласительная */
+
+    .invite-card {
+        margin-top: 0;
+        padding: 0 16px;
+        border-radius: 24px;
+        background: radial-gradient(circle at top, #5f146f 0, #b52c8b 40%, #ff60c7 100%);
+        color: #ffeefe;
+        box-shadow: 0 0 30px rgba(255, 120, 210, 0.9);
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(10px);
+        transition:
+            max-height 0.55s ease,
+            opacity 0.45s ease,
+            margin-top 0.45s ease,
+            padding 0.45s ease,
+            transform 0.45s ease;
+    }
+
+    .invite-card.open {
+        margin-top: 20px;
+        padding: 18px 16px 18px;
+        max-height: 700px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    body[data-theme="light"] .invite-card {
+        background: radial-gradient(circle at top, #ffb9eb 0, #ff7fcb 45%, #ffb1e5 100%);
+        color: #3c1236;
+    }
+
+    .invite-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    .invite-text {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 8px;
+        text-align: left;
+    }
+
+    .invite-photo {
+        width: 100%;
+        max-height: 190px;
+        border-radius: 18px;
+        object-fit: cover;
+        margin-bottom: 10px;
+        box-shadow: 0 0 18px rgba(255, 198, 245, 0.9);
+    }
+
+    .invite-footer {
+        margin-top: 10px;
+        font-size: 13px;
+        opacity: 0.95;
+    }
+
     .gallery-title {
         margin-top: 26px;
         font-size: 16px;
@@ -629,7 +692,8 @@
         transition:
             max-height 0.5s ease,
             opacity 0.35s ease,
-            transform 0.4s ease;
+            transform 0.4s ease,
+            padding 0.4s ease;
     }
 
     .section-body.open {
@@ -684,6 +748,34 @@
     .smile-line {
         font-size: 14px;
         color: var(--accent-soft);
+    }
+
+    .mood-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 8px 0 6px;
+    }
+
+    .mood-text {
+        font-size: 14px;
+        color: var(--text-main);
+        min-height: 1.6em;
+        margin-top: 4px;
+    }
+
+    .quiet-blocks {
+        margin-top: 22px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .quiet-block {
+        font-size: 14px;
+        color: var(--text-soft);
+        line-height: 1.7;
     }
 
     .signature {
@@ -765,83 +857,6 @@
         margin-bottom: 16px;
     }
 
-    /* Invite modal */
-
-    .modal {
-        position: fixed;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(5, 0, 15, 0.7);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.35s ease;
-        z-index: 40;
-    }
-
-    body[data-theme="light"] .modal {
-        background: rgba(15, 0, 30, 0.35);
-    }
-
-    .modal.show {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .modal-card {
-        max-width: 360px;
-        width: 88%;
-        border-radius: 24px;
-        padding: 20px 18px 18px;
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        box-shadow: var(--card-shadow);
-        color: var(--text-main);
-        text-align: center;
-        transform: translateY(20px) scale(0.96);
-        opacity: 0;
-        transition: transform 0.35s ease, opacity 0.35s ease;
-    }
-
-    .modal.show .modal-card {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-
-    .modal-title {
-        font-size: 20px;
-        margin-bottom: 8px;
-        color: var(--accent-soft);
-    }
-
-    .modal-text {
-        font-size: 14px;
-        line-height: 1.6;
-        margin-bottom: 10px;
-        text-align: left;
-    }
-
-    .invite-photo {
-        width: 100%;
-        border-radius: 16px;
-        object-fit: cover;
-        max-height: 190px;
-        margin-bottom: 12px;
-        box-shadow: 0 0 18px rgba(255, 160, 225, 0.85);
-    }
-
-    .modal-close {
-        position: absolute;
-        top: 10px;
-        right: 16px;
-        font-size: 20px;
-        cursor: pointer;
-        color: var(--accent-soft);
-    }
-
-    /* Responsive tweaks */
-
     @media (max-width: 768px) {
         .wrapper {
             padding: 70px 10px 50px;
@@ -875,7 +890,6 @@
         .card {
             border-radius: 22px;
         }
-        .modal-card,
         .intro-card {
             width: 90%;
         }
@@ -906,27 +920,6 @@
     </div>
 </div>
 
-<!-- Invite modal -->
-<div id="invite-modal" class="modal">
-    <div class="modal-card">
-        <div class="modal-close" id="invite-close">✕</div>
-        <img src="us6.jpg.jpeg" alt="Мы с тобой" class="invite-photo">
-        <div class="modal-title">Жанека, ура 💘</div>
-        <p class="modal-text">
-            В 16:00 16.11.2025 у нас с тобой свой маленький праздник.
-        </p>
-        <p class="modal-text">
-            Я хочу, чтобы этот вечер был спокойным, теплым и только нашим. Спасибо, что уже год ты рядом.
-            С тобой я чувствую себя намного счастливее.
-        </p>
-        <p class="modal-text">
-            Я придумал этот сюрприз заранее просто потому, что ты для меня правда важнее любых дел.
-            твой Диас 👀
-        </p>
-        <button id="invite-ok" type="button">Хорошо, жду этот вечер 💜</button>
-    </div>
-</div>
-
 <div class="glow g1"></div>
 <div class="glow g2"></div>
 <div class="glow g3"></div>
@@ -949,7 +942,7 @@
             </span>
         </h1>
         <div class="subtitle">
-            я правда рад, что этот год и все моменты были с тобой рядом
+            я правда рад, что этот год и все моменты были с тобой рядом 💗
         </div>
 
         <div class="heart-line">♡ ♡ ♡</div>
@@ -988,6 +981,30 @@
             Если музыка не играет, нажми на кнопку еще раз, браузер иногда тупит, а я нет 🎧
         </div>
 
+        <!-- Пригласительная открытка -->
+
+        <div id="invite-card" class="invite-card">
+            <img src="us6.jpg.jpeg" alt="Мы с тобой" class="invite-photo">
+            <div class="invite-title">Жанека, ура 💘</div>
+            <p class="invite-text">
+                Значит, в <b>16:00</b> <b>16.11.2025</b> мир точно станет чуть-чуть счастливее.
+            </p>
+            <p class="invite-text">
+                Я хочу сделать этот вечер спокойным и особенным только для нас двоих. Спасибо, что уже год
+                ты рядом. С тобой я чувствую себя по-настоящему счастливым.
+            </p>
+            <p class="invite-text">
+                Этот сюрприз я готовил для тебя заранее просто потому, что ты для меня правда важнее,
+                чем любые дела и планы. твой Диас 👀
+            </p>
+            <button id="invite-ok" type="button" class="btn-small">
+                Я приду 💖
+            </button>
+            <div class="invite-footer">
+                Такси отвезет тебя туда, а я буду ждать тебя с улыбкой 💗
+            </div>
+        </div>
+
         <div id="hidden-message">
             <p><b>Моей Жанеке:</b></p>
             <p>
@@ -1013,7 +1030,7 @@
             </p>
         </div>
 
-        <div class="gallery-title">Несколько наших маленьких моментов, которые я люблю:</div>
+        <div class="gallery-title">Несколько наших маленьких моментов, которые я люблю 🩷:</div>
         <div class="gallery">
             <img src="us3.jpg.jpeg" alt="Наш момент 1">
             <img src="us4.jpg.jpeg" alt="Наш момент 2">
@@ -1021,11 +1038,35 @@
             <img src="us6.jpg.jpeg" alt="Наш момент 4">
         </div>
 
-        <!-- Окошки с фишками: 2,4,5,6,12,13,22,23,24,27,29 -->
+        <!-- Окошки -->
 
         <div class="sections">
 
-            <!-- 2. Open when -->
+            <!-- Как ты сейчас -->
+
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
+                        <span>Как ты сейчас? 💭</span>
+                        <span class="section-title-tag">ответь честно</span>
+                    </div>
+                    <span class="section-arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <p>
+                        Выбери, как ты себя чувствуешь. Я бы хотел это знать, даже если ты мне сейчас не пишешь.
+                    </p>
+                    <div class="mood-buttons">
+                        <button type="button" class="btn-small mood-btn" data-mood="tired">Устала</button>
+                        <button type="button" class="btn-small mood-btn" data-mood="ok">Норм</button>
+                        <button type="button" class="btn-small mood-btn" data-mood="happy">Счастливая</button>
+                    </div>
+                    <p id="mood-text" class="mood-text"></p>
+                </div>
+            </div>
+
+            <!-- open when -->
+
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
@@ -1059,7 +1100,8 @@
                 </div>
             </div>
 
-            <!-- 4. Режим обнимашек -->
+            <!-- Режим обнимашек -->
+
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
@@ -1084,7 +1126,8 @@
                 </div>
             </div>
 
-            <!-- 5. Наши будущие моменты -->
+            <!-- Наши будущие моменты -->
+
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
@@ -1112,7 +1155,8 @@
                 </div>
             </div>
 
-            <!-- 6. Топ-5 причин, почему не хочу отпускать -->
+            <!-- Топ-5 причин -->
+
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
@@ -1132,7 +1176,8 @@
                 </div>
             </div>
 
-            <!-- 12. Что бы я сказал сейчас, если бы был рядом -->
+            <!-- Что бы я сказал сейчас -->
+
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
@@ -1149,7 +1194,8 @@
                 </div>
             </div>
 
-            <!-- 13. Счетчик сегодняшних улыбок -->
+            <!-- Улыбки сегодня -->
+
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
@@ -1168,13 +1214,14 @@
                         </button>
                         <p>
                             Каждый раз, когда нажмешь, считай, что я тоже в этот момент улыбаюсь
-                            где-то там, думая о тебе.
+                            где-то там, думая о тебе 🩷
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- 22. Что я еще хочу с тобой -->
+            <!-- Что я еще хочу с тобой -->
+
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
@@ -1194,7 +1241,8 @@
                 </div>
             </div>
 
-            <!-- 23. Антисамообесценение -->
+            <!-- Антисамообесценение -->
+
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
@@ -1219,7 +1267,8 @@
                 </div>
             </div>
 
-            <!-- 24. Ты изменила мой день тем, что просто есть -->
+            <!-- Как ты меняешь мой день -->
+
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
@@ -1240,7 +1289,8 @@
                 </div>
             </div>
 
-            <!-- 27. Если ты думаешь, что мне все равно -->
+            <!-- Если кажется, что мне все равно -->
+
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
@@ -1260,7 +1310,8 @@
                 </div>
             </div>
 
-            <!-- 29. Если нам когда-нибудь будет очень тяжело -->
+            <!-- Если нам очень тяжело -->
+
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
@@ -1283,6 +1334,26 @@
 
         </div>
 
+        <!-- Тихие блоки без рамок -->
+
+        <div class="quiet-blocks">
+            <div class="quiet-block">
+                Сегодня я просто хочу, чтобы ты поменьше ругала себя и немного больше берегла себя. Остальное мы как-нибудь вместе разберем 💗
+            </div>
+            <div class="quiet-block">
+                Если сегодня не хочешь ни с кем говорить - это нормально. Ты можешь молчать, но знай, что я все равно на твоей стороне.
+            </div>
+            <div class="quiet-block">
+                <b>Мини чек-лист заботы о себе на сегодня:</b><br>
+                ▢ поесть нормально<br>
+                ▢ чуть меньше себя накручивать<br>
+                ▢ хотя бы раз улыбнуться искренне
+            </div>
+            <div class="quiet-block">
+                <b>Что бы ни менялось на этом сайте, одно не меняется:</b> я за тебя.
+            </div>
+        </div>
+
         <div class="signature">
             С любовью, от всего сердца и от всей души, всегда твой<br>
             <b>Dias</b> 🫶
@@ -1299,7 +1370,6 @@
 </audio>
 
 <script>
-    // Вибро на телефоне
     function vibe(ms) {
         if (navigator && navigator.vibrate) {
             navigator.vibrate(ms);
@@ -1331,7 +1401,7 @@
         setTimeout(() => heart.remove(), 6000);
     }, 420);
 
-    // Бурст сердечек
+    // Вспышка сердечек
     function burstHearts() {
         const centerX = window.innerWidth / 2;
         const centerY = window.innerHeight / 2;
@@ -1520,7 +1590,7 @@
         applyParallax(xRatio, yRatio);
     }, { passive: true });
 
-    // Дневное/ночное приветствие
+    // Приветствие по времени
     function getTimeGreeting() {
         const hours = new Date().getHours();
         if (hours >= 5 && hours < 12) {
@@ -1542,13 +1612,13 @@
         introGreeting.textContent = getTimeGreeting();
     }
 
-    // Блок "что бы я сказал сейчас"
+    // Что бы я сказал сейчас
     const sayNowEl = document.getElementById("say-now");
     if (sayNowEl) {
         const hours = new Date().getHours();
         let text;
         if (hours >= 5 && hours < 12) {
-            text = "Если бы я был рядом сейчас, утром, я бы сказал тебе не спешить, спокойно начать день и помнить, что ты у меня большая умница.";
+            text = "Если бы я был рядом сейчас утром, я бы сказал тебе не спешить, спокойно начать день и помнить, что ты у меня большая умница.";
         } else if (hours >= 12 && hours < 18) {
             text = "Если бы я был рядом днем, я бы сказал тебе дышать чуть спокойнее, не загонять себя и помнить, что у тебя правда много сил.";
         } else {
@@ -1557,7 +1627,7 @@
         sayNowEl.textContent = text;
     }
 
-    // Счетчик улыбок на сегодня
+    // Счетчик улыбок
     const smileBtn = document.getElementById("smile-btn");
     const smileLine = document.getElementById("smile-line");
 
@@ -1637,7 +1707,7 @@
         });
     }
 
-    // Тема (день/ночь)
+    // Тема
     const themeToggle = document.getElementById("theme-toggle");
     const savedTheme = localStorage.getItem("djTheme");
     if (savedTheme === "light" || savedTheme === "dark") {
@@ -1667,40 +1737,49 @@
     }
 
     // Пригласительная
-    const inviteModal = document.getElementById("invite-modal");
+    const inviteCard = document.getElementById("invite-card");
     const inviteOpen = document.getElementById("open-invite");
-    const inviteClose = document.getElementById("invite-close");
     const inviteOk = document.getElementById("invite-ok");
 
-    function openInvite() {
-        if (!inviteModal) return;
-        inviteModal.classList.add("show");
-        vibe(25);
+    if (inviteOpen && inviteCard) {
+        inviteOpen.addEventListener("click", function () {
+            const isOpen = inviteCard.classList.contains("open");
+            inviteCard.classList.toggle("open");
+            if (!isOpen) {
+                inviteCard.scrollIntoView({ behavior: "smooth", block: "center" });
+                vibe(25);
+            } else {
+                vibe(15);
+            }
+        });
     }
 
-    function closeInvite() {
-        if (!inviteModal) return;
-        inviteModal.classList.remove("show");
-    }
-
-    if (inviteOpen) {
-        inviteOpen.addEventListener("click", openInvite);
-    }
-    if (inviteClose) {
-        inviteClose.addEventListener("click", closeInvite);
-    }
     if (inviteOk) {
         inviteOk.addEventListener("click", function () {
-            closeInvite();
             burstHearts();
             vibe(40);
         });
     }
-    if (inviteModal) {
-        inviteModal.addEventListener("click", function (e) {
-            if (e.target === inviteModal) {
-                closeInvite();
-            }
+
+    // Блок "Как ты?"
+    const moodBtns = document.querySelectorAll(".mood-btn");
+    const moodText = document.getElementById("mood-text");
+
+    if (moodBtns && moodText) {
+        moodBtns.forEach(btn => {
+            btn.addEventListener("click", function () {
+                const mood = btn.getAttribute("data-mood");
+                let text = "";
+                if (mood === "tired") {
+                    text = "Если ты устала - не требуй от себя слишком многого. Ты уже молодец, что просто держишься.";
+                } else if (mood === "ok") {
+                    text = "Если просто норм - пусть хотя бы здесь тебе будет немного теплее, чем обычно.";
+                } else if (mood === "happy") {
+                    text = "Если ты сейчас счастлива - я очень рад. Хочу, чтобы таких дней у тебя было еще больше.";
+                }
+                moodText.textContent = text;
+                vibe(18);
+            });
         });
     }
 </script>
