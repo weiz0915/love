@@ -44,7 +44,7 @@
         transition:
             background 0.6s ease,
             color 0.4s ease,
-            background-position 0.8s ease;
+            background-position 0.8s.ease;
     }
 
     body[data-theme="light"] {
@@ -198,7 +198,7 @@
         box-shadow: var(--shadow-strong);
         backdrop-filter: blur(18px);
         text-align: center;
-        animation: fadeIn 1.4s ease;
+        animation: fadeIn 1.4s.ease;
         color: var(--text-main);
         margin: 0 auto;
     }
@@ -422,7 +422,7 @@
             transform 0.16s ease,
             box-shadow 0.16s ease,
             opacity 0.16s ease,
-            filter 0.16s ease;
+            filter 0.16s.ease;
         white-space: nowrap;
     }
 
@@ -893,39 +893,10 @@
         background: rgba(255, 255, 255, 0.04);
     }
 
-    .big-number-card {
-        margin-top: 22px;
-        border-radius: var(--radius-big);
-        padding: 18px 16px 18px;
-        background: rgba(12, 4, 30, 0.9);
-        border: 1px solid rgba(255, 210, 255, 0.6);
-        box-shadow: var(--shadow-soft);
-        text-align: center;
-    }
-
-    body[data-theme="light"] .big-number-card {
-        background: rgba(255, 247, 255, 0.98);
-        border-color: rgba(255, 183, 231, 0.9);
-    }
-
-    .big-number {
-        font-size: 42px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        color: var(--gold);
-        text-shadow: 0 0 18px rgba(247, 216, 139, 0.35);
-    }
-
-    .big-number-subtitle {
-        margin-top: 4px;
-        font-size: 14px;
-        color: var(--text-soft);
-    }
-
     /* Прогресс-карта */
 
     .progress-card {
-        margin-top: 18px;
+        margin-top: 22px;
         border-radius: var(--radius-big);
         padding: 14px 16px 14px;
         background: rgba(18, 6, 40, 0.9);
@@ -951,59 +922,17 @@
     }
 
     .progress-fill {
-        width: 60%;
+        width: 35%; /* до Астаны еще много :) */
         height: 100%;
         border-radius: 999px;
         background: linear-gradient(90deg, #ff5cab, #ffb7e5, var(--gold));
     }
 
-    /* Линия времени */
+    /* Линия времени (стили можно оставить, сейчас блок удален) */
 
     .timeline {
         margin-top: 24px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .timeline-inner {
-        position: relative;
-        padding-left: 18px;
-        border-left: 1px solid rgba(255, 210, 255, 0.5);
-    }
-
-    .timeline-item {
-        margin-bottom: 10px;
-        position: relative;
-        padding-left: 6px;
-    }
-
-    .timeline-dot {
-        position: absolute;
-        left: -9px;
-        top: 3px;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: radial-gradient(circle, var(--gold), #ff9fdc);
-        box-shadow: 0 0 10px rgba(247, 216, 139, 0.6);
-        animation: glowDot 3s ease-in-out infinite;
-    }
-
-    @keyframes glowDot {
-        0% { box-shadow: 0 0 6px rgba(247, 216, 139, 0.3); transform: scale(1); }
-        50% { box-shadow: 0 0 14px rgba(247, 216, 139, 0.7); transform: scale(1.03); }
-        100% { box-shadow: 0 0 6px rgba(247, 216, 139, 0.3); transform: scale(1); }
-    }
-
-    .timeline-date {
-        font-size: 12px;
-        color: var(--text-muted);
-        margin-bottom: 2px;
-    }
-
-    .timeline-text {
-        font-size: 13px;
-        color: var(--text-main);
+        display: none;
     }
 
     .signature {
@@ -1277,7 +1206,7 @@
         <div id="invite-card" class="invite-card">
             <div class="invite-header">приглашение на наше свидание 💗</div>
             <div class="invite-title">Жаным 🌸</div>
-            <img src="us6.jpg.jpeg" alt="Мы с тобой" class="invite-photo">
+            <img src="us3.jpg.jpeg" alt="Мы с тобой" class="invite-photo">
             <p class="invite-text">
                 Сегодня для меня особенный день - ровно год, как мы вместе. Я очень хочу
                 отметить нашу годовщину по-особенному, просто вдвоем.
@@ -1342,52 +1271,23 @@
         <div class="polaroid-block">
             <div class="polaroid">
                 <img src="us3.jpg.jpeg" alt="Мы смеемся">
-                <div class="polaroid-caption">Твой смех, который я люблю</div>
+                <div class="polaroid-caption"></div>
             </div>
             <div class="polaroid">
                 <img src="us4.jpg.jpeg" alt="Твой взгляд">
-                <div class="polaroid-caption">Ты и твой красивый взгляд</div>
+                <div class="polaroid-caption"></div>
             </div>
-        </div>
-
-        <!-- Большая цифра -->
-
-        <div class="big-number-card">
-            <div id="big-number-days" class="big-number">365</div>
-            <div class="big-number-subtitle">примерно столько дней я счастливо думаю о тебе</div>
         </div>
 
         <!-- Прогресс к цели -->
 
         <div class="progress-card">
-            <b>Наша цель: вместе в Астане 🎓</b>
+            <b>Наша цель: вместе в Астане 🎓 ❤️</b>
             <div class="progress-bar">
                 <div class="progress-fill"></div>
             </div>
             <div style="margin-top:6px;">
-                Мы уже прошли часть пути. Остальное впереди, и я хочу идти к этому вместе с тобой.
-            </div>
-        </div>
-
-        <!-- Линия времени -->
-
-        <div class="timeline">
-            <div class="timeline-inner">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">11.11.2024</div>
-                    <div class="timeline-text">день, когда началась наша история</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2025</div>
-                    <div class="timeline-text">наши планы, ссоры, разговоры и еще больше понимания</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">11.11.2025</div>
-                    <div class="timeline-text">год, после которого я еще сильнее хочу быть с тобой дальше</div>
-                </div>
+                Мы уже сделали первые шаги. Остальное впереди, и я хочу идти к этому вместе с тобой.
             </div>
         </div>
 
@@ -1668,54 +1568,9 @@
 
         </div>
 
-        <!-- Тихие блоки -->
+        <!-- Тихие блоки (оставляем только два) -->
 
         <div class="quiet-blocks">
-            <div class="quiet-block">
-                <b>Если я долго не отвечаю:</b><br>
-                Это не потому что ты мне не важна. Скорее всего, я в делах или на учебе,
-                но ты все равно в голове и в планах.
-            </div>
-
-            <div class="quiet-block">
-                <b>Если мир сегодня слишком громкий:</b><br>
-                Пусть этот сайт будет тихим местом, где тебя никто не трогает. Здесь ты не должна быть идеальной.
-                Здесь ты просто моя Жанека.
-            </div>
-
-            <div class="quiet-block">
-                <b>Три вещи, за которые я благодарен тебе:</b>
-                <ul class="checklist">
-                    <li>за то, как ты умеешь чувствовать людей;</li>
-                    <li>за то, что не отпускаешь нас, даже когда сложно;</li>
-                    <li>за то, что ты просто есть в моей жизни.</li>
-                </ul>
-            </div>
-
-            <div class="quiet-block">
-                <b>Мини чек-лист заботы о себе на сегодня:</b>
-                <ul class="checklist">
-                    <li>поесть нормально;</li>
-                    <li>чуть меньше себя накручивать;</li>
-                    <li>хотя бы раз улыбнуться искренне.</li>
-                </ul>
-            </div>
-
-            <div class="quiet-block">
-                <b>Маленькие детали, которые я люблю в тебе:</b>
-                <ul class="checklist">
-                    <li>как ты смеешься, когда очень удивляешься;</li>
-                    <li>как ты можешь быть и сильной, и ранимой;</li>
-                    <li>как ты говоришь, когда немного устала.</li>
-                </ul>
-            </div>
-
-            <div class="quiet-block">
-                <b>О чем я мечтаю для тебя:</b><br>
-                Чтобы ты меньше переживала о том, какая ты "должна быть",
-                чтобы ты однажды увидела себя моими глазами и чтобы у тебя было больше спокойных дней, чем тревожных.
-            </div>
-
             <div class="quiet-block">
                 <b>Сегодняшняя поддержка для тебя:</b>
                 <p id="support-today" class="support-text"></p>
@@ -1889,11 +1744,6 @@
                 hours.toString().padStart(2, "0") + " ч " +
                 minutes.toString().padStart(2, "0") + " мин " +
                 seconds.toString().padStart(2, "0") + " сек";
-        }
-
-        const bigNumberEl = document.getElementById("big-number-days");
-        if (bigNumberEl) {
-            bigNumberEl.textContent = days;
         }
     }
     updateTimer();
@@ -2171,24 +2021,10 @@
         });
     }
 
-    // Рандомная поддержка дня
-    const supportMessages = [
-        "Сегодня я хочу, чтобы ты помнила: ты не обязана всегда быть сильной.",
-        "Если день тяжелый, это не делает тебя слабой. Ты живой человек, а не робот.",
-        "Ты имеешь право устать и просто выдохнуть. Это нормально.",
-        "Даже если тебе кажется, что ты мало делаешь, я горжусь твоими усилиями.",
-        "Если вдруг все надоело - это не навсегда. Я с тобой, даже если молчу.",
-        "Не забывай: ты гораздо лучше, чем думаешь о себе в плохие дни.",
-        "Ты заслуживаешь не только нагрузку, но и отдых.",
-        "С каждым днем ты становишься сильнее, даже если этого не замечаешь.",
-        "Твои чувства важны. Ты важна.",
-        "Сегодня ты имеешь право хотя бы чуть-чуть позаботиться о себе."
-    ];
-
+    // Поддержка дня (одна фраза)
     const supportEl = document.getElementById("support-today");
     if (supportEl) {
-        const msg = supportMessages[Math.floor(Math.random() * supportMessages.length)];
-        supportEl.textContent = msg;
+        supportEl.textContent = "С каждым днем ты становишься сильнее, даже если этого не замечаешь.";
     }
 
     // Галерея - плавное появление
