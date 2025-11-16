@@ -233,7 +233,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 70px 12px 60px;
+        padding: 80px 12px 70px;
         z-index: 1;
     }
 
@@ -248,10 +248,16 @@
         box-shadow: var(--shadow-strong);
         backdrop-filter: blur(18px);
         text-align: center;
-        animation: fadeIn 1.4s ease;
+        animation: fadeIn 1.4s.ease;
         color: var(--text-main);
         margin: 0 auto;
         overflow: hidden;
+    }
+
+    @media (min-width: 900px) {
+        .card {
+            max-width: 520px;
+        }
     }
 
     .card::before {
@@ -282,6 +288,19 @@
         to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* прогресс-бар прокрутки */
+    #scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0;
+        background: linear-gradient(90deg, #ff5cab, #ffb7e5, #ffd38f);
+        box-shadow: 0 0 10px rgba(255, 150, 220, 0.8);
+        z-index: 6;
+        transition: width 0.15s ease-out;
+    }
+
     .top-bar {
         position: fixed;
         top: 10px;
@@ -291,6 +310,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 8px;
         z-index: 5;
         pointer-events: none;
     }
@@ -315,6 +335,16 @@
         color: #612055;
     }
 
+    .top-caption {
+        flex: 1;
+        text-align: center;
+        font-size: 11px;
+        color: var(--text-muted);
+        opacity: 0.9;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
     .theme-toggle {
         pointer-events: auto;
         border: none;
@@ -328,7 +358,7 @@
         display: flex;
         align-items: center;
         gap: 4px;
-        transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.35s.ease;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.35s ease;
     }
 
     .theme-toggle span {
@@ -366,19 +396,19 @@
     .time-line {
         font-size: 13px;
         color: var(--accent-soft);
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         text-align: center;
     }
 
     h1 {
-        margin: 0 0 10px;
+        margin: 0 0 12px;
         font-size: 30px;
         line-height: 1.3;
         text-shadow:
             0 0 10px rgba(255, 153, 204, 0.9),
             0 0 22px rgba(255, 46, 99, 0.7);
         min-height: 1.3em;
-        animation: titleGlow 6s.ease-in-out infinite;
+        animation: titleGlow 6s ease-in-out infinite;
         text-align: center;
     }
 
@@ -397,18 +427,18 @@
 
     .subtitle {
         font-size: 16px;
-        margin-bottom: 16px;
+        margin-bottom: 18px;
         color: var(--text-soft);
         text-align: center;
     }
 
     .heart-line {
         font-size: 20px;
-        margin: 8px 0 18px;
+        margin: 8px 0 20px;
     }
 
     .divider-line {
-        margin: 10px 0 18px;
+        margin: 16px 0 22px;
         font-size: 12px;
         color: var(--accent-soft);
         opacity: 0.9;
@@ -421,7 +451,7 @@
 
     .divider-heart {
         display: inline-block;
-        animation: dividerBeat 3s.ease-in-out infinite;
+        animation: dividerBeat 3s ease-in-out infinite;
     }
 
     @keyframes dividerBeat {
@@ -442,13 +472,13 @@
         font-size: 17px;
         font-weight: 600;
         color: var(--accent-soft);
-        margin-top: 6px;
-        margin-bottom: 14px;
+        margin-top: 8px;
+        margin-bottom: 16px;
         text-align: left;
     }
 
     .quote {
-        margin: 18px auto 22px;
+        margin: 20px auto 22px;
         padding: 12px 16px;
         max-width: 540px;
         font-size: 15px;
@@ -470,7 +500,7 @@
     }
 
     .timer-block {
-        margin: 18px auto 12px;
+        margin: 20px auto 16px;
         padding: 10px 16px;
         max-width: 360px;
         border-radius: var(--radius-pill);
@@ -506,7 +536,7 @@
         flex-wrap: wrap;
         gap: 10px;
         justify-content: center;
-        margin: 20px 0 14px;
+        margin: 22px 0 14px;
     }
 
     button {
@@ -521,10 +551,10 @@
         color: #fff;
         box-shadow: var(--pill-button-shadow);
         transition:
-            transform 0.16s ease,
-            box-shadow 0.16s ease,
-            opacity 0.16s ease,
-            filter 0.16s ease;
+            transform 0.16s.ease,
+            box-shadow 0.16s.ease,
+            opacity 0.16s.ease,
+            filter 0.16s.ease;
         white-space: nowrap;
     }
 
@@ -567,7 +597,7 @@
     }
 
     #hidden-message {
-        margin-top: 16px;
+        margin-top: 18px;
         display: none;
         text-align: left;
         border-radius: var(--radius-big);
@@ -598,7 +628,7 @@
     /* Пригласительная */
 
     .invite-card {
-        margin-top: 22px;
+        margin-top: 24px;
         padding: 0;
         border-radius: var(--radius-big);
         background: radial-gradient(circle at top, #5f146f 0, #b52c8b 40%, #ff60c7 100%);
@@ -611,7 +641,7 @@
         transition:
             max-height 0.55s ease,
             opacity 0.45s ease,
-            margin-top 0.45s ease,
+            margin-top 0.45s.ease,
             padding 0.45s ease,
             transform 0.45s ease;
         position: relative;
@@ -698,14 +728,14 @@
     }
 
     .gallery-title {
-        margin-top: 24px;
+        margin-top: 28px;
         font-size: 16px;
         color: var(--text-soft);
         text-align: center;
     }
 
     .gallery {
-        margin-top: 10px;
+        margin-top: 12px;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 9px;
@@ -741,6 +771,10 @@
         box-shadow: var(--shadow-strong);
     }
 
+    .gallery img.tilt {
+        transform: rotate(-2deg) scale(1.03);
+    }
+
     .heart {
         position: fixed;
         top: -10px;
@@ -752,8 +786,12 @@
     }
 
     @keyframes fall {
-        to {
-            transform: translateY(110vh);
+        0% {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(110vh) scale(0.6);
             opacity: 0;
         }
     }
@@ -806,11 +844,11 @@
     }
 
     .sections {
-        margin-top: 28px;
+        margin-top: 32px;
         text-align: left;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 16px;
     }
 
     .section {
@@ -818,7 +856,7 @@
         overflow: hidden;
         transform: translateY(4px);
         opacity: 0;
-        transition: transform 0.5s ease, opacity 0.6s ease;
+        transition: transform 0.5s ease, opacity 0.6s.ease;
         position: relative;
         z-index: 1;
     }
@@ -897,10 +935,10 @@
         box-shadow: var(--shadow-soft);
         transform: translateY(6px);
         transition:
-            max-height 0.5s ease,
-            opacity 0.35s ease,
+            max-height 0.5s.ease,
+            opacity 0.35s.ease,
             transform 0.4s.ease,
-            padding 0.4s ease;
+            padding 0.4s.ease;
         position: relative;
     }
 
@@ -976,11 +1014,11 @@
     }
 
     .quiet-blocks {
-        margin-top: 24px;
+        margin-top: 26px;
         text-align: center;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 14px;
     }
 
     .quiet-block {
@@ -1028,7 +1066,7 @@
     }
 
     .progress-card {
-        margin-top: 22px;
+        margin-top: 24px;
         border-radius: var(--radius-big);
         padding: 14px 16px 14px;
         background: rgba(18, 6, 40, 0.9);
@@ -1108,8 +1146,56 @@
         animation: softBlink 3.4s ease-in-out infinite;
     }
 
+    .month-card {
+        margin-top: 24px;
+        border-radius: var(--radius-big);
+        padding: 14px 16px 14px;
+        background: rgba(18, 6, 40, 0.9);
+        border: 1px solid rgba(255, 188, 255, 0.6);
+        box-shadow: var(--shadow-soft);
+        font-size: 14px;
+        color: var(--text-soft);
+        text-align: left;
+    }
+
+    body[data-theme="light"] .month-card {
+        background: rgba(255, 247, 255, 0.98);
+        border-color: rgba(255, 180, 230, 0.9);
+    }
+
+    .month-card b {
+        display: block;
+        text-align: center;
+        margin-bottom: 4px;
+    }
+
+    .ya-za-tebya {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    .ya-za-tebya.show-ya {
+        animation: yaBounce 0.9s ease forwards;
+    }
+
+    @keyframes yaBounce {
+        0% {
+            opacity: 0;
+            transform: translateY(4px) scale(0.98);
+        }
+        50% {
+            opacity: 1;
+            transform: translateY(-2px) scale(1.04);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
     .signature {
-        margin-top: 28px;
+        margin-top: 30px;
         font-size: 14px;
         color: var(--text-soft);
         opacity: 0.95;
@@ -1187,7 +1273,7 @@
         z-index: 50;
         opacity: 1;
         pointer-events: auto;
-        transition: opacity 0.45s ease;
+        transition: opacity 0.45s.ease;
     }
 
     body[data-theme="light"] .intro-overlay {
@@ -1246,15 +1332,15 @@
     }
 
     #open-invite {
-        animation: softPulse 2.4s.ease-in-out infinite;
+        animation: softPulse 2.4s ease-in-out infinite;
     }
 
     .to-top-btn {
         position: fixed;
         right: 16px;
         bottom: 18px;
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
         border-radius: 50%;
         border: none;
         background: var(--pill-button-bg);
@@ -1265,8 +1351,9 @@
         font-size: 20px;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.25s ease, transform 0.25s ease;
+        transition: opacity 0.25s ease, transform 0.25s.ease, box-shadow 0.25s.ease;
         z-index: 10;
+        backdrop-filter: blur(10px);
     }
 
     .to-top-btn.show {
@@ -1276,11 +1363,12 @@
 
     .to-top-btn:hover {
         transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 160, 228, 0.9);
     }
 
     @media (max-width: 768px) {
         .wrapper {
-            padding: 70px 8px 50px;
+            padding: 80px 8px 60px;
         }
         .card {
             padding: 22px 14px 28px;
@@ -1305,6 +1393,9 @@
             font-size: 12px;
             padding: 5px 12px;
         }
+        .top-caption {
+            display: none;
+        }
     }
 
     @media (max-width: 480px) {
@@ -1319,8 +1410,11 @@
 </head>
 <body data-theme="dark">
 
+<div id="scroll-progress"></div>
+
 <div class="top-bar">
     <div class="logo">D❤️J</div>
+    <div class="top-caption">Наш первый год вместе 💗</div>
     <button id="theme-toggle" class="theme-toggle" type="button">
         <span>🌙</span><span>Ночь</span>
     </button>
@@ -1425,9 +1519,7 @@
             <button id="invite-ok" type="button" class="btn-small">
                 Я приду 💖
             </button>
-            <div class="invite-footer">
-               
-            </div>
+            <div class="invite-footer"></div>
         </div>
 
         <div id="hidden-message">
@@ -1473,6 +1565,14 @@
             </div>
         </div>
 
+        <div class="month-card">
+            <b>На этот месяц ✨</b>
+            <p>
+                Ноябрь: месяц, когда мы учимся держаться спокойнее, поддерживать друг друга
+                чуть больше, чем вчера, и верить в наши общие планы.
+            </p>
+        </div>
+
         <div class="divider-line">
             <span class="divider-inner">· · · <span class="divider-heart">💗</span> · · ·</span>
         </div>
@@ -1482,7 +1582,7 @@
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
-                        <span>Как ты сейчас? 💭</span>
+                        <span>Как ты сейчас? 💗</span>
                         <span class="section-title-tag">ответь честно</span>
                     </div>
                     <span class="section-arrow">▼</span>
@@ -1582,7 +1682,7 @@
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
-                        <span>Что бы я сказал тебе сейчас 💬</span>
+                        <span>Что бы я сказал тебе сейчас 🌸</span>
                         <span class="section-title-tag">если был бы рядом</span>
                     </div>
                     <span class="section-arrow">▼</span>
@@ -1638,6 +1738,30 @@
             <div class="section reveal">
                 <button class="section-header" type="button">
                     <div class="section-title-main">
+                        <span>Если ты переживаешь из-за внешности 🌸</span>
+                        <span class="section-title-tag">ты красивая</span>
+                    </div>
+                    <span class="section-arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <p><b>Про тебя настоящую.</b></p>
+                    <p>
+                        Ты красивая даже без фильтров и идеального света. Мне важно твое лицо в обычной жизни,
+                        когда ты просто ты, а не идеальная картинка.
+                    </p>
+                    <p>
+                        Мне нравится ты настоящая - уставшая, с растрепанными волосами, с сонным взглядом или
+                        смешной прической. Я люблю в тебе живого человека, а не "идеальный" образ.
+                    </p>
+                    <p>
+                        Для меня самая красивая версия тебя - та, которая рядом и не пытается быть идеальной.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
                         <span>Как ты меняешь мой день 🌸</span>
                         <span class="section-title-tag">честно</span>
                     </div>
@@ -1650,7 +1774,7 @@
                         У меня больше мотивации, планов и причин стараться.
                     </p>
                     <p>
-                        Если убрать тебя из этой картины моя жизнь была бы пустым.
+                        Если убрать тебя из этой картины моя жизнь была бы пустой.
                         Я очень сильно ценю что ты есть в моей жизни.
                     </p>
                 </div>
@@ -1701,13 +1825,20 @@
 
         <div class="quiet-blocks">
             <div class="quiet-block">
-                <b>Сегодняшняя поддержка для тебя:</b>
+                <b>Сегодняшняя поддержка для тебя ✨</b>
                 <p id="support-today" class="support-text"></p>
             </div>
 
             <div class="quiet-block">
-                <b>Что бы ни менялось на этом сайте одно не меняется: </b>
-                <p class="support-text">я всегда за тебя и люблю только тебя жаным.</p>
+                <b>Что бы ни менялось на этом сайте одно не меняется:</b>
+                <p class="support-text">
+                    <span id="ya-za-tebya" class="ya-za-tebya">я за тебя и люблю только тебя жаным.</span>
+                </p>
+            </div>
+
+            <div class="quiet-block">
+                <b>Про то, что ты сюда заходишь 💗</b>
+                <p id="visit-line" class="support-text"></p>
             </div>
         </div>
 
@@ -1740,6 +1871,16 @@
             navigator.vibrate(ms);
         }
     }
+
+    // счётчик визитов
+    let visitCount = 0;
+    try {
+        visitCount = parseInt(localStorage.getItem("djVisits") || "0", 10);
+    } catch (e) {
+        visitCount = 0;
+    }
+    visitCount++;
+    localStorage.setItem("djVisits", String(visitCount));
 
     function createStars(count) {
         for (let i = 0; i < count; i++) {
@@ -1822,6 +1963,19 @@
         lastTap = currentTime;
     });
 
+    function refreshFocusMode() {
+        const anyOpen = document.querySelector(".section-body.open");
+        const inviteCard = document.getElementById("invite-card");
+        const hiddenMessage = document.getElementById("hidden-message");
+        const inviteOpen = inviteCard && inviteCard.classList.contains("open");
+        const hiddenVisible = hiddenMessage && hiddenMessage.style.display === "block";
+        if (anyOpen || inviteOpen || hiddenVisible) {
+            document.body.classList.add("focus-mode");
+        } else {
+            document.body.classList.remove("focus-mode");
+        }
+    }
+
     function showMessage() {
         const msg = document.getElementById("hidden-message");
         const isOpen = msg.style.display === "block";
@@ -1829,6 +1983,7 @@
         if (!isOpen) {
             msg.scrollIntoView({ behavior: "smooth", block: "center" });
         }
+        refreshFocusMode();
         vibe(30);
     }
     window.showMessage = showMessage;
@@ -2027,15 +2182,6 @@
         });
     }
 
-    function refreshFocusMode() {
-        const anyOpen = document.querySelector(".section-body.open");
-        if (anyOpen) {
-            document.body.classList.add("focus-mode");
-        } else {
-            document.body.classList.remove("focus-mode");
-        }
-    }
-
     document.querySelectorAll(".section-header").forEach(function (btn) {
         btn.addEventListener("click", function () {
             const body = btn.nextElementSibling;
@@ -2124,6 +2270,7 @@
             } else {
                 vibe(15);
             }
+            refreshFocusMode();
         });
     }
 
@@ -2166,7 +2313,7 @@
             "Ты уже делаешь больше чем думаешь. Я правда вижу твои старания.",
             "Ты имеешь право на отдых и на то чтобы просто быть собой а не идеальной.",
             "Даже если день был тяжелым, ты все равно умница что дошла до этого момента.",
-            "Ты не обязанa быть сильной постоянно. Иногда достаточно просто не сдаваться.",
+            "Ты не обязана быть сильной постоянно. Иногда достаточно просто не сдаваться.",
             "Если бы ты могла увидеть себя моими глазами, ты бы собой гордилась.",
             "Ты не случайный человек в моей жизни. Ты мой осознанный выбор Жанёка.",
             "С каждым днем ты становишься красивее не только внешне, но и внутри.",
@@ -2175,6 +2322,26 @@
         ];
         const idx = new Date().getDate() % supportMessages.length;
         supportEl.textContent = supportMessages[idx];
+    }
+
+    // текст про визиты
+    const visitLine = document.getElementById("visit-line");
+    if (visitLine) {
+        if (visitCount <= 1) {
+            visitLine.textContent = "Если это твой первый заход сюда, пусть тебе здесь будет чуть спокойнее, чем было до этого.";
+        } else if (visitCount <= 5) {
+            visitLine.textContent = "Ты уже заходила сюда несколько раз. Для меня это очень много значит.";
+        } else {
+            visitLine.textContent = "Ты уже заходила сюда не один раз. Я правда ценю, что ты сюда возвращаешься.";
+        }
+    }
+
+    // мягкий подскок "я за тебя"
+    const yaSpan = document.getElementById("ya-za-tebya");
+    if (yaSpan) {
+        setTimeout(() => {
+            yaSpan.classList.add("show-ya");
+        }, 1600);
     }
 
     const galleryImages = document.querySelectorAll(".gallery img");
@@ -2187,7 +2354,17 @@
         });
     }, { threshold: 0.2 });
 
-    galleryImages.forEach(img => galleryObserver.observe(img));
+    galleryImages.forEach(img => {
+        galleryObserver.observe(img);
+        img.addEventListener("click", function () {
+            img.classList.add("tilt");
+            setTimeout(() => img.classList.remove("tilt"), 150);
+        });
+        img.addEventListener("touchstart", function () {
+            img.classList.add("tilt");
+            setTimeout(() => img.classList.remove("tilt"), 150);
+        }, { passive: true });
+    });
 
     const sigSecret = document.getElementById("sig-secret");
     const sigName = document.querySelector(".signature b");
@@ -2205,6 +2382,15 @@
             toTop.classList.add("show");
         } else {
             toTop.classList.remove("show");
+        }
+
+        const doc = document.documentElement;
+        const scrollTop = doc.scrollTop || document.body.scrollTop;
+        const scrollHeight = doc.scrollHeight - doc.clientHeight;
+        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        const bar = document.getElementById("scroll-progress");
+        if (bar) {
+            bar.style.width = progress + "%";
         }
     }
     window.addEventListener("scroll", handleScroll);
@@ -2228,6 +2414,9 @@
         }, { threshold: 0.7 });
         footObs.observe(footerStamp);
     }
+
+    // прогресс-бар инициализация при загрузке
+    handleScroll();
 </script>
 
 </body>
