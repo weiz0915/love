@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name=viewport content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>D & J · 11.11</title>
 <style>
     * {
@@ -37,8 +37,8 @@
         --chip-bg: rgba(255, 180, 230, 0.16);
         --section-bg: radial-gradient(circle at top left, rgba(255, 165, 223, 0.16), rgba(40, 14, 70, 0.96));
         --section-border: rgba(255, 210, 255, 0.55);
-        --shadow-soft: 0 0 16px rgba(255, 150, 230, 0.5);
-        --shadow-strong: 0 0 24px rgba(255, 140, 220, 0.8);
+        --shadow-soft: 0 0 18px rgba(255, 150, 230, 0.6);
+        --shadow-strong: 0 0 26px rgba(255, 140, 220, 0.9);
         --pill-button-bg: linear-gradient(135deg, #ff2e63, #ff8ac7);
         --pill-button-shadow: 0 0 18px rgba(255, 118, 196, 0.9);
         transition:
@@ -59,10 +59,10 @@
         --chip-bg: rgba(255, 180, 230, 0.24);
         --section-bg: radial-gradient(circle at top left, rgba(255, 214, 244, 0.38), rgba(252, 246, 255, 0.98));
         --section-border: rgba(255, 180, 230, 0.9);
-        --shadow-soft: 0 0 14px rgba(255, 165, 230, 0.45);
-        --shadow-strong: 0 0 20px rgba(255, 160, 225, 0.65);
+        --shadow-soft: 0 0 16px rgba(255, 165, 230, 0.55);
+        --shadow-strong: 0 0 22px rgba(255, 160, 225, 0.7);
         --pill-button-bg: linear-gradient(135deg, #ff4f9d, #ff94d0);
-        --pill-button-shadow: 0 0 16px rgba(255, 160, 228, 0.7);
+        --pill-button-shadow: 0 0 18px rgba(255, 160, 228, 0.7);
     }
 
     body.focus-mode::before {
@@ -92,25 +92,20 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
         height: 3px;
-        background: rgba(255, 255, 255, 0.05);
-        z-index: 20;
-        backdrop-filter: blur(10px);
-    }
-
-    .scroll-progress-bar {
-        height: 100%;
         width: 0;
-        background: linear-gradient(90deg, #ff5cab, #ffb7e5, #f7d88b);
-        transition: width 0.15s ease-out;
+        background: linear-gradient(90deg, #ff5cab, #ffb7e5, #ffd38f);
+        z-index: 20;
+        box-shadow: 0 0 8px rgba(255, 140, 220, 0.9);
+        border-radius: 0 0 8px 0;
+        transition: width 0.12s ease-out;
     }
 
     .glow {
         position: fixed;
         border-radius: 50%;
         filter: blur(40px);
-        opacity: 0.6;
+        opacity: 0.65;
         z-index: -1;
         pointer-events: none;
         will-change: transform;
@@ -140,7 +135,7 @@
         background: rgba(255, 120, 180, 0.8);
         bottom: 18%;
         left: 40%;
-        animation: floatGlow 20s.ease-in-out infinite alternate-reverse;
+        animation: floatGlow 20s ease-in-out infinite alternate-reverse;
     }
 
     @keyframes floatGlow {
@@ -253,13 +248,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 70px 12px 60px;
+        padding: 76px 12px 80px;
         z-index: 1;
     }
 
     .card {
         position: relative;
-        max-width: 860px;
+        max-width: 420px; /* под iPhone/мобилки */
         width: 100%;
         padding: 26px 20px 34px;
         border-radius: var(--radius-big);
@@ -272,11 +267,6 @@
         color: var(--text-main);
         margin: 0 auto;
         overflow: hidden;
-    }
-
-    .card-inner {
-        max-width: 420px;
-        margin: 0 auto;
     }
 
     .card::before {
@@ -309,16 +299,15 @@
 
     .top-bar {
         position: fixed;
-        top: 6px;
+        top: 10px;
         left: 0;
         right: 0;
-        padding: 4px 14px 6px;
+        padding: 0 14px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        z-index: 15;
+        z-index: 5;
         pointer-events: none;
-        backdrop-filter: blur(16px);
     }
 
     .logo {
@@ -339,6 +328,16 @@
     body[data-theme="light"] .logo {
         background: rgba(255, 245, 255, 0.96);
         color: #612055;
+    }
+
+    .top-note {
+        pointer-events: none;
+        font-size: 11px;
+        color: var(--text-muted);
+        opacity: 0.9;
+        text-align: center;
+        flex: 1;
+        margin: 0 8px;
     }
 
     .theme-toggle {
@@ -375,7 +374,7 @@
         font-size: 11px;
         color: var(--text-muted);
         opacity: 0.85;
-        margin-bottom: 4px;
+        margin-bottom: 6px;
         text-align: center;
     }
 
@@ -385,19 +384,19 @@
         text-transform: uppercase;
         color: var(--text-muted);
         opacity: 0.95;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
         text-align: center;
     }
 
     .time-line {
         font-size: 13px;
         color: var(--accent-soft);
-        margin-bottom: 12px;
+        margin-bottom: 14px;
         text-align: center;
     }
 
     h1 {
-        margin: 0 0 10px;
+        margin: 0 0 12px;
         font-size: 30px;
         line-height: 1.3;
         text-shadow:
@@ -468,7 +467,7 @@
         font-size: 17px;
         font-weight: 600;
         color: var(--accent-soft);
-        margin-top: 8px;
+        margin-top: 6px;
         margin-bottom: 16px;
         text-align: left;
     }
@@ -486,7 +485,7 @@
         box-shadow: var(--shadow-soft);
         font-style: italic;
         opacity: 0;
-        transition: opacity 0.8s ease;
+        transition: opacity 0.8s.ease;
         min-height: 3em;
         text-align: left;
     }
@@ -532,7 +531,7 @@
         flex-wrap: wrap;
         gap: 10px;
         justify-content: center;
-        margin: 22px 0 16px;
+        margin: 20px 0 16px;
     }
 
     button {
@@ -548,7 +547,7 @@
         box-shadow: var(--pill-button-shadow);
         transition:
             transform 0.16s ease,
-            box-shadow 0.16s ease,
+            box-shadow 0.16s.ease,
             opacity 0.16s ease,
             filter 0.16s ease;
         white-space: nowrap;
@@ -584,33 +583,13 @@
     }
 
     button:active {
-        transform: scale(0.97) translateY(1px);
+        transform: scale(0.97);
         opacity: 0.9;
     }
 
     .btn-small {
-        padding: 9px 20px;
+        padding: 9px 18px;
         font-size: 14px;
-        min-height: 34px;
-    }
-
-    #open-invite {
-        animation: softPulse 2.4s ease-in-out infinite;
-    }
-
-    @keyframes softPulse {
-        0% {
-            transform: scale(1);
-            box-shadow: 0 0 18px rgba(255, 118, 196, 0.5);
-        }
-        50% {
-            transform: scale(1.03);
-            box-shadow: 0 0 26px rgba(255, 160, 228, 0.9);
-        }
-        100% {
-            transform: scale(1);
-            box-shadow: 0 0 18px rgba(255, 118, 196, 0.5);
-        }
     }
 
     #hidden-message {
@@ -745,7 +724,7 @@
     }
 
     .gallery-title {
-        margin-top: 26px;
+        margin-top: 24px;
         font-size: 16px;
         color: var(--text-soft);
         text-align: center;
@@ -782,14 +761,13 @@
         100% { transform: translateY(0); }
     }
 
-    .gallery img:hover {
-        transform: translateY(-3px) scale(1.03);
-        filter: brightness(1.05);
-        box-shadow: var(--shadow-strong);
+    .gallery img.tilt {
+        transform: translateY(-2px) scale(1.03) rotate(-2deg);
     }
 
-    .gallery img:active {
-        transform: translateY(-1px) scale(1.02) rotate(-1.5deg);
+    .gallery img:hover {
+        filter: brightness(1.05);
+        box-shadow: var(--shadow-strong);
     }
 
     .heart {
@@ -803,7 +781,14 @@
     }
 
     @keyframes fall {
-        to {
+        0% {
+            transform: translateY(-10px) scale(1);
+            opacity: 1;
+        }
+        70% {
+            opacity: 1;
+        }
+        100% {
             transform: translateY(110vh) scale(0.7);
             opacity: 0;
         }
@@ -869,7 +854,7 @@
         overflow: hidden;
         transform: translateY(4px);
         opacity: 0;
-        transition: transform 0.5s ease, opacity 0.6s ease;
+        transition: transform 0.5s.ease, opacity 0.6s ease;
         position: relative;
         z-index: 1;
     }
@@ -1003,7 +988,7 @@
         margin-top: 4px;
         opacity: 0;
         transform: translateY(4px);
-        transition: opacity 0.25s ease, transform 0.25s.ease;
+        transition: opacity 0.25s ease, transform 0.25s ease;
         text-align: left;
     }
 
@@ -1031,7 +1016,7 @@
         text-align: center;
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: 16px;
     }
 
     .quiet-block {
@@ -1054,21 +1039,18 @@
         text-align: center;
     }
 
-    .support-main {
-        margin-top: 4px;
+    .support-text-ya {
         display: inline-block;
-        animation: supportBounce 1.2s ease-out;
+        opacity: 0;
+        transform: translateY(6px) scale(0.96);
+        animation: yaPop 0.8s ease-out forwards;
+        animation-delay: 0.4s;
     }
 
-    .support-phrase {
-        display: inline-block;
-        animation: supportBounce 1.2s ease-out;
-    }
-
-    @keyframes supportBounce {
-        0%   { transform: translateY(6px); opacity: 0; }
-        60%  { transform: translateY(-2px); opacity: 1; }
-        100% { transform: translateY(0); opacity: 1; }
+    @keyframes yaPop {
+        0%   { opacity: 0; transform: translateY(6px) scale(0.96); }
+        60%  { opacity: 1; transform: translateY(0) scale(1.04); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .checklist {
@@ -1177,7 +1159,7 @@
     }
 
     .signature {
-        margin-top: 30px;
+        margin-top: 28px;
         font-size: 14px;
         color: var(--text-soft);
         opacity: 0.95;
@@ -1298,25 +1280,44 @@
         text-align: center;
     }
 
+    @keyframes softPulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 18px rgba(255, 118, 196, 0.5);
+        }
+        50% {
+            transform: scale(1.03);
+            box-shadow: 0 0 26px rgba(255, 160, 228, 0.9);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 18px rgba(255, 118, 196, 0.5);
+        }
+    }
+
+    #open-invite {
+        animation: softPulse 2.4s ease-in-out infinite;
+    }
+
     .to-top-btn {
         position: fixed;
         right: 16px;
-        bottom: 18px;
-        width: 38px;
-        height: 38px;
+        bottom: 26px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         border: none;
-        background: rgba(12, 4, 30, 0.9);
+        background: rgba(15, 5, 35, 0.9);
         box-shadow: 0 0 16px rgba(255, 160, 228, 0.8);
+        backdrop-filter: blur(10px);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
+        font-size: 20px;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+        transition: opacity 0.25s ease, transform 0.25s ease;
         z-index: 10;
-        backdrop-filter: blur(10px);
     }
 
     .to-top-btn.show {
@@ -1330,10 +1331,10 @@
 
     @media (max-width: 768px) {
         .wrapper {
-            padding: 72px 8px 56px;
+            padding: 76px 10px 80px;
         }
         .card {
-            padding: 22px 14px 28px;
+            padding: 22px 16px 28px;
         }
         h1 {
             font-size: 24px;
@@ -1369,12 +1370,11 @@
 </head>
 <body data-theme="dark">
 
-<div class="scroll-progress">
-    <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
-</div>
+<div id="scroll-progress" class="scroll-progress"></div>
 
 <div class="top-bar">
     <div class="logo">D❤️J</div>
+    <div class="top-note">Наш первый год вместе 💗</div>
     <button id="theme-toggle" class="theme-toggle" type="button">
         <span>🌙</span><span>Ночь</span>
     </button>
@@ -1403,415 +1403,413 @@
 
 <div class="wrapper">
     <div class="card">
-        <div class="card-inner">
-            <div class="whisper">Этот сайт существует, потому что ты для меня не просто девочка, а целый смысл.</div>
-            <div class="date">11.11.2025 • наш первый год вместе</div>
-            <div id="time-line" class="time-line"></div>
+        <div class="whisper">Этот сайт существует, потому что ты для меня не просто девочка, а целый смысл.</div>
+        <div class="date">11.11.2025 • наш первый год вместе</div>
+        <div id="time-line" class="time-line"></div>
 
-            <h1>
-                <span id="typed-title" data-text="Жанека, с нашей годовщиной ❤️">
-                    Жанека, с нашей годовщиной ❤️
-                </span>
-            </h1>
-            <div class="subtitle">
-                я очень рад что этот год и все его моменты пережили вместе 💗
-            </div>
+        <h1>
+            <span id="typed-title" data-text="Жанека, с нашей годовщиной ❤️">
+                Жанека, с нашей годовщиной ❤️
+            </span>
+        </h1>
+        <div class="subtitle">
+            я очень рад что этот год и все его моменты пережили вместе 💗
+        </div>
 
-            <div class="heart-line">♡ ♡ ♡</div>
+        <div class="heart-line">♡ ♡ ♡</div>
 
-            <p class="text">
-                Милая, за этот год ты стала для меня самым близким человеком. С тобой спокойнее,
-                теплее и весь мир будто меняет свои краски. Ты для меня намного важнее чем ты думаешь.
+        <p class="text">
+            Милая, за этот год ты стала для меня самым близким человеком. С тобой спокойнее,
+            теплее и весь мир будто меняет свои краски. Ты для меня намного важнее чем ты думаешь.
+        </p>
+        <p class="text">
+            Как бы мы ни ругались и ни ссорились, внутри все равно одно чувство:
+            я хочу быть с тобой и сохранить нас. В самые тяжелые моменты меня больше всего
+            пугает не ссора а мысль что вдруг могу тебя потерять.
+        </p>
+        <p class="text highlight">
+            Жаным, я очень сильно люблю тебя и верю что мы дойдем до конца, до кольца ❤️
+        </p>
+        <p class="text">
+            Хочу чтобы когда ты открываешь этот сайт ты чувствовала то же тепло
+            которое я чувствую к тебе.
+        </p>
+
+        <div class="quote" id="quote-box"></div>
+
+        <div class="timer-block">
+            <div class="timer-title">мы вместе уже</div>
+            <div class="timer-values" id="timer">считаю наши дни...</div>
+        </div>
+
+        <div class="divider-line">
+            <span class="divider-inner">· · · <span class="divider-heart">💗</span> · · ·</span>
+        </div>
+
+        <div class="btn-row">
+            <button type="button" onclick="toggleMusic()">Наша песня - KETPE 🎵</button>
+            <button type="button" onclick="showMessage()">Нажми сюда, жаным 💌</button>
+            <button id="open-invite" type="button" class="btn-small">Сюрприз на 16.11 💖</button>
+        </div>
+
+        <div id="music-status">
+            Если музыка не играет, нажми на кнопку еще раз, браузер иногда тупит, а я нет 🎧
+        </div>
+
+        <div id="invite-card" class="invite-card">
+            <div class="invite-header">приглашение на наше свидание 💗</div>
+            <div class="invite-title">Жаным 🌸</div>
+            <img src="us3.jpg.jpeg" alt="Мы с тобой" class="invite-photo">
+            <p class="invite-text">
+                Сегодня для меня особенный день - ровно год, как мы вместе. Я очень хочу
+                отметить нашу годовщину.
             </p>
-            <p class="text">
-                Как бы мы ни ругались и ни ссорились, внутри все равно одно чувство:
-                я хочу быть с тобой и сохранить нас. В самые тяжелые моменты меня больше всего
-                пугает не ссора а мысль что вдруг могу тебя потерять.
+            <p class="invite-text">
+                Приглашаю тебя на свидание в честь нашего года вместе.
             </p>
-            <p class="text highlight">
-                Жаным, я очень сильно люблю тебя и верю что мы дойдем до конца, до кольца ❤️
+            <div class="invite-info">
+                <span>📍 Место встречи: секретное, такси отвезет тебя ко мне.</span>
+                <span>👗 Дресс-код: любая одежда - в любом образе ты у меня самая красивая.</span>
+                <span>🕒 Время: 16:00</span>
+                <span>📅 Дата: 16.11.2025</span>
+            </div>
+            <p class="invite-text">
+                Приходи, жаным. Я буду ждать тебя.
             </p>
-            <p class="text">
-                Хочу чтобы когда ты открываешь этот сайт ты чувствовала то же тепло
-                которое я чувствую к тебе.
+            <button id="invite-ok" type="button" class="btn-small">
+                Я приду 💖
+            </button>
+            <div class="invite-footer"></div>
+        </div>
+
+        <div id="hidden-message">
+            <p><b>Моей Жанеке:</b></p>
+            <p>
+                Спасибо тебе за твое терпение, за то что выдерживаешь мой характер,
+                мои косяки и эмоции. Я вижу как ты стараешься и как переживаешь за нас.
             </p>
+            <p>
+                Я хочу учиться решать все спокойнее без крика и обид с уважением друг к другу.
+                Наши отношения для меня самые лучшие потому что в них есть мы со всем смехом,
+                ревностью, обидами и теплом.
+            </p>
+            <p>
+                Я мечтаю о дне когда мы оба поступим на гранты и переедем в Астану,
+                где уже живем вместе, просыпаемся рядом и строим свой общий день
+                и будущее.
+            </p>
+            <p>
+                Ты правда мой самый родной человек, жаным. Я с тобой и за тебя до конца
+                как бы ни было сложно.
+            </p>
+            <p>
+                С нашей годовщиной, Жанёка. Спасибо что ты есть и что выбираешь меня ❤️
+            </p>
+        </div>
 
-            <div class="quote" id="quote-box"></div>
+        <div class="gallery-title">Несколько наших маленьких моментов, которые я люблю 🩷:</div>
+        <div class="gallery">
+            <img src="us3.jpg.jpeg" alt="Наш момент 1">
+            <img src="us4.jpg.jpeg" alt="Наш момент 2">
+            <img src="us5.jpg.jpeg" alt="Наш момент 3">
+            <img src="us6.jpg.jpeg" alt="Наш момент 4">
+        </div>
 
-            <div class="timer-block">
-                <div class="timer-title">мы вместе уже</div>
-                <div class="timer-values" id="timer">считаю наши дни...</div>
+        <div class="progress-card">
+            <b>Наша цель: вместе в Астане 🎓 <span class="dot-glow">❤️</span></b>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
             </div>
-
-            <div class="divider-line">
-                <span class="divider-inner">· · · <span class="divider-heart">💗</span> · · ·</span>
+            <div style="margin-top:6px; text-align:left;">
+                Мы уже сделали первые шаги. Остальное впереди и я хочу идти к этому вместе с тобой.
             </div>
+        </div>
 
-            <div class="btn-row">
-                <button type="button" onclick="toggleMusic()">Наша песня - KETPE 🎵</button>
-                <button type="button" onclick="showMessage()">Нажми сюда, жаным 💌</button>
-                <button id="open-invite" type="button" class="btn-small">Сюрприз на 16.11 💖</button>
-            </div>
+        <div class="divider-line">
+            <span class="divider-inner">· · · <span class="divider-heart">💗</span> · · ·</span>
+        </div>
 
-            <div id="music-status">
-                Если музыка не играет, нажми на кнопку еще раз, браузер иногда тупит, а я нет 🎧
-            </div>
+        <div class="sections">
 
-            <div id="invite-card" class="invite-card">
-                <div class="invite-header">приглашение на наше свидание 💗</div>
-                <div class="invite-title">Жаным 🌸</div>
-                <img src="us3.jpg.jpeg" alt="Мы с тобой" class="invite-photo">
-                <p class="invite-text">
-                    Сегодня для меня особенный день - ровно год, как мы вместе. Я очень хочу
-                    отметить нашу годовщину только с тобой.
-                </p>
-                <p class="invite-text">
-                    Приглашаю тебя на свидание в честь нашего года вместе.
-                </p>
-                <div class="invite-info">
-                    <span>📍 Место встречи: секретное, такси отвезет тебя ко мне.</span>
-                    <span>👗 Дресс-код: любая одежда - в любом образе ты у меня самая красивая.</span>
-                    <span>🕒 Время: 16:00</span>
-                    <span>📅 Дата: 16.11.2025</span>
-                </div>
-                <p class="invite-text">
-                    Приходи, жаным. Я буду ждать тебя.
-                </p>
-                <button id="invite-ok" type="button" class="btn-small">
-                    Я приду 💖
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
+                        <span>Как ты сейчас? 💗</span>
+                        <span class="section-title-tag">ответь честно</span>
+                    </div>
+                    <span class="section-arrow">▼</span>
                 </button>
-                <div class="invite-footer"></div>
-            </div>
-
-            <div id="hidden-message">
-                <p><b>Моей Жанеке:</b></p>
-                <p>
-                    Спасибо тебе за твое терпение, за то что выдерживаешь мой характер,
-                    мои косяки и эмоции. Я вижу как ты стараешься и как переживаешь за нас.
-                </p>
-                <p>
-                    Я хочу учиться решать все спокойнее без крика и обид с уважением друг к другу.
-                    Наши отношения для меня самые лучшие потому что в них есть мы со всем смехом,
-                    ревностью, обидами и теплом.
-                </p>
-                <p>
-                    Я мечтаю о дне когда мы оба поступим на гранты и переедем в Астану,
-                    где уже живем вместе, просыпаемся рядом и строим свой общий день
-                    и будущее.
-                </p>
-                <p>
-                    Ты правда мой самый родной человек, жаным. Я с тобой и за тебя до конца
-                    как бы ни было сложно.
-                </p>
-                <p>
-                    С нашей годовщиной, Жанёка. Спасибо что ты есть и что выбираешь меня ❤️
-                </p>
-            </div>
-
-            <div class="gallery-title">Несколько наших маленьких моментов, которые я люблю 🩷</div>
-            <div class="gallery">
-                <img src="us3.jpg.jpeg" alt="Наш момент 1">
-                <img src="us4.jpg.jpeg" alt="Наш момент 2">
-                <img src="us5.jpg.jpeg" alt="Наш момент 3">
-                <img src="us6.jpg.jpeg" alt="Наш момент 4">
-            </div>
-
-            <div class="progress-card">
-                <b>Наша цель: вместе в Астане 🎓 <span class="dot-glow">❤️</span></b>
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
-                </div>
-                <div style="margin-top:6px; text-align:left;">
-                    Мы уже сделали первые шаги. Остальное впереди и я хочу идти к этому вместе с тобой.
+                <div class="section-body">
+                    <p>
+                        Выбери, как ты себя чувствуешь. Я бы хотел это знать, даже если ты мне сейчас не пишешь.
+                    </p>
+                    <div class="mood-buttons">
+                        <button type="button" class="btn-small mood-btn" data-mood="tired">Устала</button>
+                        <button type="button" class="btn-small mood-btn" data-mood="ok">Нормально</button>
+                        <button type="button" class="btn-small mood-btn" data-mood="happy">Счастливая</button>
+                    </div>
+                    <p id="mood-text" class="mood-text"></p>
                 </div>
             </div>
 
-            <div class="divider-line">
-                <span class="divider-inner">· · · <span class="divider-heart">💗</span> · · ·</span>
-            </div>
-
-            <div class="sections">
-
-                <div class="section reveal">
-                    <button class="section-header" type="button">
-                        <div class="section-title-main">
-                            <span>Как ты сейчас? 💗</span>
-                            <span class="section-title-tag">ответь честно</span>
-                        </div>
-                        <span class="section-arrow">▼</span>
-                    </button>
-                    <div class="section-body">
-                        <p>
-                            Выбери, как ты себя чувствуешь. Я бы хотел это знать, даже если ты мне сейчас не пишешь.
-                        </p>
-                        <div class="mood-buttons">
-                            <button type="button" class="btn-small mood-btn" data-mood="tired">Устала</button>
-                            <button type="button" class="btn-small mood-btn" data-mood="ok">Нормально</button>
-                            <button type="button" class="btn-small mood-btn" data-mood="happy">Счастливая</button>
-                        </div>
-                        <p id="mood-text" class="mood-text"></p>
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
+                        <span>Когда тебе по-разному ✨</span>
+                        <span class="section-title-tag">open when</span>
                     </div>
-                </div>
-
-                <div class="section reveal">
-                    <button class="section-header" type="button">
-                        <div class="section-title-main">
-                            <span>Когда тебе по-разному ✨</span>
-                            <span class="section-title-tag">open when</span>
-                        </div>
-                        <span class="section-arrow">▼</span>
-                    </button>
-                    <div class="section-body">
-                        <p><b>Если тебе когда-нибудь тяжело:</b></p>
-                        <p>
-                            Пожалуйста не думай, что ты одна со всем этим. Даже если я не рядом
-                            или не сразу отвечаю ты все равно моя и я за тебя всегда.
-                        </p>
-                        <p><b>Если ты скучаешь:</b></p>
-                        <p>
-                            Представь что я сижу рядом, держу тебя за руку и просто молчу.
-                            Иногда это лучше любых слов. Я тоже скучаю намного больше чем говорю.
-                        </p>
-                        <p><b>Если злишься на меня:</b></p>
-                        <p>
-                            Ты имеешь право злиться. Я тоже немало косячу. Но даже в эти моменты
-                            ты для меня не враг, а мой человек.
-                        </p>
-                        <p><b>Если все вроде нормально:</b></p>
-                        <p>
-                            Запомни это состояние. Ты заслуживаешь спокойных дней без лишних мыслей.
-                            И я очень хочу чтобы таких дней у тебя было больше.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="section reveal">
-                    <button class="section-header" type="button">
-                        <div class="section-title-main">
-                            <span>Если ты переживаешь из-за внешности 🌸</span>
-                            <span class="section-title-tag">ты красивая</span>
-                        </div>
-                        <span class="section-arrow">▼</span>
-                    </button>
-                    <div class="section-body">
-                        <p><b>Про тебя настоящую.</b></p>
-                        <p>
-                            Ты красивая даже без фильтров и идеальных ракурсов. Мне важно твое лицо в обычной жизни,
-                            когда ты просто ты, а не картинка для кого-то.
-                        </p>
-                        <p>
-                            Мне нравишься ты настоящая: уставшая после дня, с растрепанными волосами,
-                            в самой простой одежде. Именно так ты для меня самая родная и самая красивая.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="section reveal">
-                    <button class="section-header" type="button">
-                        <div class="section-title-main">
-                            <span>Наши будущие моменты ✨</span>
-                            <span class="section-title-tag">мечты</span>
-                        </div>
-                        <span class="section-arrow">▼</span>
-                    </button>
-                    <div class="section-body">
-                        <p><b>1. Наш вечер в Астане.</b></p>
-                        <p>
-                            Когда мы уже учимся там, гуляем по городу после пар и просто знаем,
-                            что это наш общий новый этап.
-                        </p>
-                        <p><b>2. Наш день без дел.</b></p>
-                        <p>
-                            Когда мы просто вместе дома, без планов. Фильмы, еда,
-                            разговоры и чувство что никуда не надо спешить.
-                        </p>
-                        <p><b>3. Наш маленький "мы справились".</b></p>
-                        <p>
-                            Когда оглядываемся назад и понимаем, что через все трудности
-                            все равно дошли до этого места вместе.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="section reveal">
-                    <button class="section-header" type="button">
-                        <div class="section-title-main">
-                            <span>Почему я не хочу отпускать тебя 💫</span>
-                            <span class="section-title-tag">топ-5</span>
-                        </div>
-                        <span class="section-arrow">▼</span>
-                    </button>
-                    <div class="section-body">
-                        <p><b>Пять причин почему именно ты.</b></p>
-                        <ul>
-                            <li>С тобой жизнь не пустая а живая.</li>
-                            <li>Впервые я хочу идти с кем-то до конца.</li>
-                            <li>Ты стала для меня не статусом а своим человеком.</li>
-                            <li>С тобой я не боюсь думать про будущее.</li>
-                            <li>Без тебя все уже не то и не так интересно.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="section reveal">
-                    <button class="section-header" type="button">
-                        <div class="section-title-main">
-                            <span>Что бы я сказал тебе сейчас 💬</span>
-                            <span class="section-title-tag">если был бы рядом</span>
-                        </div>
-                        <span class="section-arrow">▼</span>
-                    </button>
-                    <div class="section-body">
-                        <p><b>Мои слова на сейчас.</b></p>
-                        <p id="say-now"></p>
-                    </div>
-                </div>
-
-                <div class="section reveal">
-                    <button class="section-header" type="button">
-                        <div class="section-title-main">
-                            <span>Твои улыбки сегодня 😊</span>
-                            <span class="section-title-tag">маленькая игра</span>
-                        </div>
-                        <span class="section-arrow">▼</span>
-                    </button>
-                    <div class="section-body">
-                        <p><b>Мини-счетчик хороших моментов.</b></p>
-                        <div class="smile-counter">
-                            <div id="smile-line" class="smile-line">
-                                Сегодня ты улыбалась: 0 раз.
-                            </div>
-                            <button id="smile-btn" type="button" class="btn-small">
-                                Сегодня я улыбнулась
-                            </button>
-                            <p>
-                                Каждый раз когда нажмешь считай что я тоже в этот момент улыбаюсь
-                                где-то там, думая о тебе 🩷
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section reveal">
-                    <button class="section-header" type="button">
-                        <div class="section-title-main">
-                            <span>Если ты опять обесцениваешь себя 💗</span>
-                            <span class="section-title-tag">важно</span>
-                        </div>
-                        <span class="section-arrow">▼</span>
-                    </button>
-                    <div class="section-body">
-                        <p><b>Запомни пожалуйста.</b></p>
-                        <p>Ты не "слишком эмоциональная" - ты просто глубоко чувствуешь.</p>
-                        <p>Ты не "мешаешь" - ты важна. Я сам выбрал быть с тобой.</p>
-                        <p>Ты не "проблема" - ты человек которого я хочу поддерживать а не исправлять.</p>
-                        <p>Твои чувства не лишние. Ты имеешь право уставать, злиться, ревновать и переживать.</p>
-                    </div>
-                </div>
-
-                <div class="section reveal">
-                    <button class="section-header" type="button">
-                        <div class="section-title-main">
-                            <span>Как ты меняешь мой день 🌸</span>
-                            <span class="section-title-tag">честно</span>
-                        </div>
-                        <span class="section-arrow">▼</span>
-                    </button>
-                    <div class="section-body">
-                        <p><b>Когда ты просто есть.</b></p>
-                        <p>
-                            Даже если ты ничего не пишешь сам факт что ты есть уже меняет мой день.
-                            У меня больше мотивации, планов и причин стараться.
-                        </p>
-                        <p>
-                            Если убрать тебя из этой картины моя жизнь была бы пустой.
-                            Я очень сильно ценю что ты есть в моей жизни.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="section reveal">
-                    <button class="section-header" type="button">
-                        <div class="section-title-main">
-                            <span>Если вдруг кажется, что мне все равно 💔</span>
-                            <span class="section-title-tag">прочитай</span>
-                        </div>
-                        <span class="section-arrow">▼</span>
-                    </button>
-                    <div class="section-body">
-                        <p><b>На случай сомнений.</b></p>
-                        <p>
-                            Если тебе когда-нибудь покажется что мне все равно посмотри на этот сайт.
-                        </p>
-                        <p>
-                            Сколько времени, мыслей и чувств я сюда вложил. Просто так такое не делают.
-                            Я могу быть уставшим, молчаливым, занятым, но равнодушным к тебе - никак нет.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="section reveal">
-                    <button class="section-header" type="button">
-                        <div class="section-title-main">
-                            <span>Если нам когда-нибудь будет очень тяжело 🌙</span>
-                            <span class="section-title-tag">на всякий случай</span>
-                        </div>
-                        <span class="section-arrow">▼</span>
-                    </button>
-                    <div class="section-body">
-                        <p><b>На очень сложные дни.</b></p>
-                        <p>
-                            Если когда-нибудь нам будет очень тяжело и мы не будем понимать что делать,
-                            я хочу чтобы ты вспомнила не наши ссоры а именно этот сайт.
-                        </p>
-                        <p>
-                            Вспомнила что был момент когда я всей душой хотел быть с тобой до конца.
-                            Этот момент никуда не делся. Я все равно хочу идти с тобой а не против тебя.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="quiet-blocks">
-                <div class="quiet-block">
-                    <b>Сегодняшняя поддержка для тебя:</b>
-                    <p id="support-today" class="support-text"></p>
-                </div>
-
-                <div class="quiet-block">
-                    <b>Что бы ни менялось на этом сайте, одно не меняется:</b>
-                    <p class="support-text support-main">
-                        <span class="support-phrase">я всегда за тебя</span> и люблю только тебя жаным.
+                    <span class="section-arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <p><b>Если тебе когда-нибудь тяжело:</b></p>
+                    <p>
+                        Пожалуйста не думай, что ты одна со всем этим. Даже если я не рядом
+                        или не сразу отвечаю ты все равно моя и я за тебя всегда.
+                    </p>
+                    <p><b>Если ты скучаешь:</b></p>
+                    <p>
+                        Представь что я сижу рядом, держу тебя за руку и просто молчу.
+                        Иногда это лучше любых слов. Я тоже скучаю намного больше чем говорю.
+                    </p>
+                    <p><b>Если злишься на меня:</b></p>
+                    <p>
+                        Ты имеешь право злиться. Я тоже немало косячу. Но даже в эти моменты
+                        ты для меня не враг, а мой человек.
+                    </p>
+                    <p><b>Если все вроде нормально:</b></p>
+                    <p>
+                        Запомни это состояние. Ты заслуживаешь спокойных дней без лишних мыслей.
+                        И я очень хочу чтобы таких дней у тебя было больше.
                     </p>
                 </div>
+            </div>
 
-                <div class="quiet-block">
-                    <b>На этот месяц 💗</b>
-                    <p id="month-note" class="support-text">
-                        Ноябрь: месяц, когда мы учимся держаться спокойнее и поддерживать друг друга.
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
+                        <span>Наши будущие моменты ✨</span>
+                        <span class="section-title-tag">мечты</span>
+                    </div>
+                    <span class="section-arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <p><b>1. Наш вечер в Астане.</b></p>
+                    <p>
+                        Когда мы уже учимся там, гуляем по городу после пар и просто знаем,
+                        что это наш общий новый этап.
                     </p>
-                </div>
-
-                <div class="quiet-block">
-                    <b>Про то, что ты сюда заходишь ✨</b>
-                    <p id="visit-text" class="support-text"></p>
+                    <p><b>2. Наш день без дел.</b></p>
+                    <p>
+                        Когда мы просто вместе дома, без планов. Фильмы, еда,
+                        разговоры и чувство что никуда не надо спешить.
+                    </p>
+                    <p><b>3. Наш маленький "мы справились".</b></p>
+                    <p>
+                        Когда оглядываемся назад и понимаем, что через все трудности
+                        все равно дошли до этого места вместе.
+                    </p>
                 </div>
             </div>
 
-            <div class="signature">
-                С любовью, от всего сердца и от всей души, всегда твой<br>
-                <b>Dias</b> 🫶
-                <div class="tiny-line">
-                    Если ты это читаешь значит я снова думаю о тебе и снова влюбляюсь в тебя,
-                    как в первый день наших отношений ❤️
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
+                        <span>Почему я не хочу отпускать тебя 💫</span>
+                        <span class="section-title-tag">топ-5</span>
+                    </div>
+                    <span class="section-arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <p><b>Пять причин почему именно ты.</b></p>
+                    <ul>
+                        <li>С тобой жизнь не пустая а живая.</li>
+                        <li>Впервые я хочу идти с кем-то до конца.</li>
+                        <li>Ты стала для меня не статусом а своим человеком.</li>
+                        <li>С тобой я не боюсь думать про будущее.</li>
+                        <li>Без тебя все уже не то и не так интересно.</li>
+                    </ul>
                 </div>
-                <div id="sig-secret" class="sig-secret">
-                    Да, это все я делал именно для тебя, и я ни о чем не жалею.
+            </div>
+
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
+                        <span>Что бы я сказал тебе сейчас 💬</span>
+                        <span class="section-title-tag">если был бы рядом</span>
+                    </div>
+                    <span class="section-arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <p><b>Мои слова на сейчас.</b></p>
+                    <p id="say-now"></p>
                 </div>
-                <div class="footer-stamp">
-                    D & J · 2024 - <span class="infinity-glow">∞</span>
+            </div>
+
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
+                        <span>Твои улыбки сегодня 😊</span>
+                        <span class="section-title-tag">маленькая игра</span>
+                    </div>
+                    <span class="section-arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <p><b>Мини-счетчик хороших моментов.</b></p>
+                    <div class="smile-counter">
+                        <div id="smile-line" class="smile-line">
+                            Сегодня ты улыбалась: 0 раз.
+                        </div>
+                        <button id="smile-btn" type="button" class="btn-small">
+                            Сегодня я улыбнулась
+                        </button>
+                        <p>
+                            Каждый раз когда нажмешь считай что я тоже в этот момент улыбаюсь
+                            где-то там, думая о тебе 🩷
+                        </p>
+                    </div>
                 </div>
+            </div>
+
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
+                        <span>Если ты опять обесцениваешь себя 💗</span>
+                        <span class="section-title-tag">важно</span>
+                    </div>
+                    <span class="section-arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <p><b>Запомни пожалуйста.</b></p>
+                    <p>Ты не "слишком эмоциональная" - ты просто глубоко чувствуешь.</p>
+                    <p>Ты не "мешаешь" - ты важна. Я сам выбрал быть с тобой.</p>
+                    <p>Ты не "проблема" - ты человек которого я хочу поддерживать а не исправлять.</p>
+                    <p>Твои чувства не лишние. Ты имеешь право уставать, злиться, ревновать и переживать.</p>
+                </div>
+            </div>
+
+            <!-- Новый блок: если переживаешь из-за внешности -->
+
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
+                        <span>Если ты переживаешь из-за внешности 🌸</span>
+                        <span class="section-title-tag">очень важно</span>
+                    </div>
+                    <span class="section-arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <p><b>На случай когда тебе кажется, что с тобой что-то не так.</b></p>
+                    <p>
+                        Ты очень красивая без фильтров и идеального света. Мне намного важнее
+                        твое лицо в обычной жизни, когда ты просто ты.
+                    </p>
+                    <p>
+                        Мне нравится ты настоящая - уставшая, с растрепанными волосами, без идеального настроения.
+                        Для меня ты красивая не из-за фильтров, а потому что ты моя.
+                    </p>
+                    <p>
+                        Пожалуйста будь к себе мягче. Я уже давно смотрю на тебя глазами человека,
+                        который в тебя влюблен.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
+                        <span>Как ты меняешь мой день 🌸</span>
+                        <span class="section-title-tag">честно</span>
+                    </div>
+                    <span class="section-arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <p><b>Когда ты просто есть.</b></p>
+                    <p>
+                        Даже если ты ничего не пишешь сам факт что ты есть уже меняет мой день.
+                        У меня больше мотивации, планов и причин стараться.
+                    </p>
+                    <p>
+                        Если убрать тебя из этой картины моя жизнь была бы пустым.
+                        Я очень сильно ценю что ты есть в моей жизни.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
+                        <span>Если вдруг кажется, что мне все равно 💔</span>
+                        <span class="section-title-tag">прочитай</span>
+                    </div>
+                    <span class="section-arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <p><b>На случай сомнений.</b></p>
+                    <p>
+                        Если тебе когда-нибудь покажется что мне все равно посмотри на этот сайт.
+                    </p>
+                    <p>
+                        Сколько времени, мыслей и чувств я сюда вложил. Просто так такое не делают.
+                        Я могу быть уставшим, молчаливым, занятым, но равнодушным к тебе - никак нет.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section reveal">
+                <button class="section-header" type="button">
+                    <div class="section-title-main">
+                        <span>Если нам когда-нибудь будет очень тяжело 🌙</span>
+                        <span class="section-title-tag">на всякий случай</span>
+                    </div>
+                    <span class="section-arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <p><b>На очень сложные дни.</b></p>
+                    <p>
+                        Если когда-нибудь нам будет очень тяжело и мы не будем понимать что делать,
+                        я хочу чтобы ты вспомнила не наши ссоры а именно этот сайт.
+                    </p>
+                    <p>
+                        Вспомнила что был момент когда я всей душой хотел быть с тобой до конца.
+                        Этот момент никуда не делся. Я все равно хочу идти с тобой а не против тебя.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="quiet-blocks">
+            <div class="quiet-block">
+                <b>Сегодняшняя поддержка для тебя:</b>
+                <p id="support-today" class="support-text"></p>
+            </div>
+
+            <div class="quiet-block">
+                <b>На этот месяц:</b>
+                <p id="month-message" class="support-text"></p>
+            </div>
+
+            <div class="quiet-block">
+                <b>Что бы ни менялось на этом сайте одно не меняется:</b>
+                <p class="support-text">
+                    <span id="ya-za-tebya" class="support-text-ya">я всегда за тебя и люблю только тебя жаным.</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="signature">
+            <div id="visits-note" class="tiny-line"></div>
+            С любовью, от всего сердца и от всей души, всегда твой<br>
+            <b>Dias</b> 🫶
+            <div class="tiny-line">
+                Если ты это читаешь значит я снова думаю о тебе и снова влюбляюсь в тебя,
+                как в первый день наших отношений ❤️
+            </div>
+            <div id="sig-secret" class="sig-secret">
+                Да, это все я делал именно для тебя, и я ни о чем не жалею.
+            </div>
+            <div class="footer-stamp">
+                D & J · 2024 - <span class="infinity-glow">∞</span>
             </div>
         </div>
     </div>
@@ -1882,9 +1880,9 @@
         "Каждый день заново выбираю именно тебя.",
         "Мне повезло, что именно ты моя милая.",
         "Твоя улыбка лечит мои дни.",
-        "Когда ты рядом, мне даже воздух кажется другим.",
-        "Ты самый тёплый человек в моей жизни.",
-        "Если бы можно было выбрать ещё раз, я бы снова выбрал тебя."
+        "Когда ты рядом мне даже воздух кажется другим.",
+        "Ты самый теплый человек в моей жизни.",
+        "Если можно было бы выбрать еще раз, я бы снова выбрал тебя."
     ];
 
     let secretTimeout = null;
@@ -1911,6 +1909,18 @@
         lastTap = currentTime;
     });
 
+    function refreshFocusMode() {
+        const anyOpenSection = document.querySelector(".section-body.open");
+        const inviteOpen = document.getElementById("invite-card")?.classList.contains("open");
+        const hiddenMsg = document.getElementById("hidden-message");
+        const msgOpen = hiddenMsg && hiddenMsg.style.display === "block";
+        if (anyOpenSection || inviteOpen || msgOpen) {
+            document.body.classList.add("focus-mode");
+        } else {
+            document.body.classList.remove("focus-mode");
+        }
+    }
+
     function showMessage() {
         const msg = document.getElementById("hidden-message");
         const isOpen = msg.style.display === "block";
@@ -1918,6 +1928,7 @@
         if (!isOpen) {
             msg.scrollIntoView({ behavior: "smooth", block: "center" });
         }
+        refreshFocusMode();
         vibe(30);
     }
     window.showMessage = showMessage;
@@ -1926,6 +1937,7 @@
     function toggleMusic() {
         const audio = document.getElementById("loveSong");
         const status = document.getElementById("music-status");
+
         if (!audio) return;
 
         if (!isPlaying) {
@@ -1992,7 +2004,7 @@
         "Ты единственный человек, с кем я хочу делить и радость, и свои страхи.",
         "Иногда я смотрю на тебя и думаю: вот за что мне так повезло.",
         "Ты не просто часть моей жизни, ты моя главная глава.",
-        "С тобой я по-настоящему верю в слово \"мы\".",
+        "С тобой я впервые по-настоящему верю в слово \"мы\".",
         "Даже если день был тяжелым, мысль о тебе делает его мягче."
     ];
     const quoteBox = document.getElementById("quote-box");
@@ -2044,6 +2056,13 @@
         applyParallax(xRatio, yRatio);
     }, { passive: true });
 
+    // Немного параллакса от скролла
+    window.addEventListener("scroll", function () {
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = docHeight > 0 ? window.scrollY / docHeight : 0;
+        applyParallax(0, (ratio - 0.5) * 0.4);
+    });
+
     function getTimeGreeting() {
         const hours = new Date().getHours();
         if (hours >= 5 && hours < 12) {
@@ -2051,7 +2070,7 @@
         } else if (hours >= 12 && hours < 18) {
             return "День хороший, потому что ты есть ❤️";
         } else {
-            return "Если ты это читаешь ночью, знай: я хочу, чтобы ты выспалась, жаным 💗";
+            return "Если ты это читаешь ночью, знай: я хочу, чтобы ты выспалась жаным 💗";
         }
     }
 
@@ -2113,15 +2132,6 @@
             updateSmileText();
             vibe(25);
         });
-    }
-
-    function refreshFocusMode() {
-        const anyOpen = document.querySelector(".section-body.open");
-        if (anyOpen) {
-            document.body.classList.add("focus-mode");
-        } else {
-            document.body.classList.remove("focus-mode");
-        }
     }
 
     document.querySelectorAll(".section-header").forEach(function (btn) {
@@ -2212,6 +2222,7 @@
             } else {
                 vibe(15);
             }
+            refreshFocusMode();
         });
     }
 
@@ -2231,11 +2242,11 @@
                 const mood = btn.getAttribute("data-mood");
                 let text = "";
                 if (mood === "tired") {
-                    text = "Если ты устала - не требуй от себя слишком многого. Ты уже молодец, что просто держишься, и я очень горжусь тобой.";
+                    text = "Если ты устала - не требуй от себя слишком многого. Ты уже молодец что просто держишься и я очень горжусь тобой.";
                 } else if (mood === "ok") {
                     text = "Если всё нормально - пусть хотя бы здесь тебе будет немного теплее и спокойнее, чем было до этого.";
                 } else if (mood === "happy") {
-                    text = "Если ты сейчас счастлива - это лучший момент дня. Очень хочу чтобы такие дни у тебя были чаще, чем все остальные.";
+                    text = "Если ты сейчас счастлива - это лучший момент дня. Очень хочу чтобы такие дни у тебя были чаще чем все остальные.";
                 }
                 moodText.classList.remove("show");
                 setTimeout(() => {
@@ -2251,39 +2262,38 @@
     if (supportEl) {
         const supportMessages = [
             "С каждым днем ты становишься сильнее, даже если этого не замечаешь.",
-            "Ты уже делаешь больше, чем думаешь. Я правда вижу твои старания.",
-            "Ты имеешь право на отдых и на то, чтобы просто быть собой, а не идеальной.",
-            "Даже если день был тяжелым, ты все равно умница, что дошла до этого момента.",
+            "Ты уже делаешь больше чем думаешь. Я правда вижу твои старания.",
+            "Ты имеешь право на отдых и на то чтобы просто быть собой а не идеальной.",
+            "Даже если день был тяжелым, ты все равно умница что дошла до этого момента.",
             "Ты не обязана быть сильной постоянно. Иногда достаточно просто не сдаваться.",
             "Если бы ты могла увидеть себя моими глазами, ты бы собой гордилась.",
-            "Ты не случайный человек в моей жизни. Ты мой осознанный выбор, Жанёка.",
+            "Ты не случайный человек в моей жизни. Ты мой осознанный выбор Жанёка.",
             "С каждым днем ты становишься красивее не только внешне, но и внутри.",
             "Ты заслуживаешь тихого счастья без лишних тревог, и я хочу к этому идти с тобой.",
-            "Даже когда тебе кажется, что ты ничего не успеваешь, ты все равно моя самая любимая."
+            "Даже когда тебе кажется что ты ничего не успеваешь, ты все равно моя самая любимая."
         ];
         const idx = new Date().getDate() % supportMessages.length;
         supportEl.textContent = supportMessages[idx];
     }
 
-    // Блок "на этот месяц" – можно менять текст вручную в HTML при желании
-
-    // Статистика заходов
-    const visitText = document.getElementById("visit-text");
-    if (visitText) {
-        let visits = 0;
-        try {
-            visits = parseInt(localStorage.getItem("djVisits") || "0", 10);
-        } catch (e) {
-            visits = 0;
-        }
-        visits += 1;
-        localStorage.setItem("djVisits", String(visits));
-
-        if (visits === 1) {
-            visitText.textContent = "Ты впервые здесь. Надеюсь, здесь тебе спокойно и по-домашнему.";
-        } else {
-            visitText.textContent = "Ты уже заходила сюда не один раз. Я это очень ценю.";
-        }
+    const monthEl = document.getElementById("month-message");
+    if (monthEl) {
+        const monthTexts = [
+            "Январь: месяц, когда хочется, чтобы у тебя было больше тепла и спокойствия.",
+            "Февраль: месяц, когда я особенно благодарен за тебя.",
+            "Март: месяц, когда хочется верить, что у тебя будет больше улыбок.",
+            "Апрель: месяц, когда я хочу, чтобы ты меньше переживала и больше жила для себя.",
+            "Май: месяц, когда мы оба стараемся и идем к своим целям.",
+            "Июнь: месяц, когда хочется чуть больше отдыха и воздуха для тебя.",
+            "Июль: месяц, в котором я особенно хочу, чтобы ты чувствовала себя любимой.",
+            "Август: месяц, когда мы готовимся к новому этапу и держимся вместе.",
+            "Сентябрь: месяц, когда мы идем к учебе и Астане и верим в себя.",
+            "Октябрь: месяц, когда я особенно хочу, чтобы ты не загоняла себя лишними мыслями.",
+            "Ноябрь: месяц, когда мы учимся держаться спокойнее и беречь друг друга.",
+            "Декабрь: месяц, когда хочется больше тепла, наших звонков и тихих вечеров."
+        ];
+        const m = new Date().getMonth();
+        monthEl.textContent = monthTexts[m] || "Этот месяц тоже наш, и я хочу пройти его вместе с тобой.";
     }
 
     const galleryImages = document.querySelectorAll(".gallery img");
@@ -2296,7 +2306,17 @@
         });
     }, { threshold: 0.2 });
 
-    galleryImages.forEach(img => galleryObserver.observe(img));
+    galleryImages.forEach(img => {
+        galleryObserver.observe(img);
+        img.addEventListener("touchstart", () => {
+            img.classList.add("tilt");
+            setTimeout(() => img.classList.remove("tilt"), 180);
+        });
+        img.addEventListener("mousedown", () => {
+            img.classList.add("tilt");
+            setTimeout(() => img.classList.remove("tilt"), 180);
+        });
+    });
 
     const sigSecret = document.getElementById("sig-secret");
     const sigName = document.querySelector(".signature b");
@@ -2308,25 +2328,23 @@
     }
 
     const toTop = document.getElementById("to-top");
-    const progressBar = document.getElementById("scroll-progress-bar");
+    const scrollBar = document.getElementById("scroll-progress");
 
     function handleScroll() {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        if (progressBar) {
-            progressBar.style.width = percent + "%";
+        if (toTop) {
+            if (window.scrollY > 400) {
+                toTop.classList.add("show");
+            } else {
+                toTop.classList.remove("show");
+            }
         }
-
-        if (!toTop) return;
-        if (window.scrollY > 400) {
-            toTop.classList.add("show");
-        } else {
-            toTop.classList.remove("show");
+        if (scrollBar) {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+            scrollBar.style.width = progress + "%";
         }
     }
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
 
     if (toTop) {
         toTop.addEventListener("click", function () {
@@ -2346,6 +2364,24 @@
             });
         }, { threshold: 0.7 });
         footObs.observe(footerStamp);
+    }
+
+    // Статистика посещений (без цифр, мягко)
+    const visitsNote = document.getElementById("visits-note");
+    if (visitsNote) {
+        let visits = 0;
+        try {
+            visits = parseInt(localStorage.getItem("djVisits") || "0", 10);
+        } catch (e) {
+            visits = 0;
+        }
+        visits++;
+        localStorage.setItem("djVisits", String(visits));
+        if (visits <= 1) {
+            visitsNote.textContent = "Ты впервые зашла сюда. Я это очень ценю.";
+        } else {
+            visitsNote.textContent = "Ты уже заходила сюда не один раз. Для меня это много значит.";
+        }
     }
 </script>
 
